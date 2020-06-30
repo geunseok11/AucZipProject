@@ -23,9 +23,9 @@
 
 - **프로젝트 기간** : 20.06.29 ~ 20.07.08 (주말 포함 10일)
 - **총 3개의 Sprint**로 진행 (각 스프린트는 하나의 일정한 **기능 단위 완성**으로 구성되어야 함)
-    - Sprint 1 ⇒
-    - Sprint 2 ⇒
-    - Sprint 3 ⇒
+    - Sprint 1 ⇒ 프로젝트 설계
+    - Sprint 2 ⇒ 프로젝트 제작
+    - Sprint 3 ⇒ advancde 제작 및 배포
 - 시스템 아키텍쳐 설계 (기능 flow, 컴포넌트 구성)
 - DB 스키마 설계
 - 팀원별 role (front-end, back-end or feature 단위)
