@@ -13,7 +13,11 @@ module.exports = {
         res.status(404);
         res.end('unvalid user');
       } else {  //회원가입이 된 경우
-        if(data.dataValues.password === password){  //비밀번호 맞는 경우
+        let secret='signupsalt'
+        const decipherPassword=crypto.createDecipher('aes-256-cbc', secret)
+                      .update(data.dataValues.password, 'base64', 'utf8')+decipher.final('utf8');
+ 
+        if(decipherPassword === password){  //비밀번호 맞는 경우
           //회원의 id를 session에 담는다
           let payload = {
             memberId : memberId
