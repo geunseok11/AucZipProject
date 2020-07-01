@@ -15,7 +15,7 @@ module.exports = {
                      .update(password)
                      .digest('base64')
 
-    users.findOne({where: { memberid: memberid }}) //다른 사용자와 이메일이 겹치면 안됨
+    users.findOne({where: { memberid: memberid }}) //다른 사용자와 아이디 겹치지 않게
     .then((data) => {
       if(data){
         res.status(409).send('Already exists ID');
