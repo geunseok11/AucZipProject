@@ -2,6 +2,11 @@
   {
     "email": "duhyun.kim@codestates.com",
     "username": "duhyundev",
-    "password": "1234"
+    "password": "1234",
+    "name": "cho",
+    "memberId": 1,
+    "phone": 333212345,
+    "address": "구미시"
   }
 ]
+
