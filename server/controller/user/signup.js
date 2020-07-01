@@ -4,7 +4,7 @@ const crypto=require('crypto');
 module.exports = {
   post: (req, res) => {
     let name=req.body.name
-    let memberid=req.body.memberid
+    let memberId=req.body.memberId
     let password=req.body.password
     let email=req.body.email
     let phone=req.body.phone
@@ -15,13 +15,13 @@ module.exports = {
                      .update(password)
                      .digest('base64')
 
-    users.findOne({where: { memberid: memberid }}) //다른 사용자와 아이디 겹치지 않게
+    users.findOne({where: { memberId: memberId }}) //다른 사용자와 아이디 겹치지 않게
     .then((data) => {
       if(data){
         res.status(409).send('Already exists ID');
         res.end();
       } else {
-        users.create({name, memberid, password : hash, email, phone, address})
+        users.create({name, memberId, password : hash, email, phone, address})
         .then((data) => {
           res.status(200).send('signup completed');
           res.end();
