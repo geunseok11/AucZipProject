@@ -1,4 +1,4 @@
-const { users } = require('../../models');
+const { user } = require('../../models');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
       //console.log(decoded);
       let memberId = decoded.memberId;
       //console.log(email);
-      users.findOne({where: {memberId: memberId}})
+      user.findOne({where: {memberId: memberId}})
       .then(data => {
         res.status(200).send(data.dataValues);
         res.end();
