@@ -1,16 +1,22 @@
-const { User } = require('./models');
+const { User, Building, userBuilding } = require('./models');
 const usersFixture = require('./fixtures/users.json');
-
+const buildingFixture = require('./fixtures/building.json');
 test();
 
 async function test(){
+    await User.destroy({ truncate: {cascade: true }, restartIdentity: true });
+    await Building.destroy({ where: {}, truncate: {cascade: true }});
+    await userBuilding.destroy({ where: {}, truncate: {cascade: true }});
 
-    await User.destroy({ where: {}, truncate: true });
-
-    await User.create(usersFixture[0]);
-    let a = await User.findAll({})
-    console.log(a)
-    console.log('aa');
+    let d = await User.create(usersFixture[0]);
+    console.log(d.id, 'User id??')
+    let b = await Building.create(buildingFixture[0]);
+    let c = await userBuilding.create({userId: d.id, buildingId: b.id, 
+            userInvest: 1000000})
+    // await userBuilding.findAll({})
+    console.log(c.dataValues);
     // await users.destroy({ where: {}, truncate: true });
     // await users.create(usersFixture[0]);
 }
+//npx sequelize-cli model:generate --name User --attributes ㅜame:string,email:string
+//npx sequelize-cli db:migrate

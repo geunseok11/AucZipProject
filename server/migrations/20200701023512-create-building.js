@@ -9,12 +9,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       b_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       image: {
         type: Sequelize.STRING
       },
       b_address: {
+        type: Sequelize.STRING
+      },
+      b_invest: {
+        type: Sequelize.INTEGER
+      },
+      b_invest_goal: {
+        type: Sequelize.INTEGER
+      },
+      b_people : {
+        type: Sequelize.STRING
+      },
+      b_info : {
+        type: Sequelize.STRING
+      },
+      b_location : {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -31,3 +47,5 @@ module.exports = {
     return queryInterface.dropTable('Buildings');
   }
 };
+
+
