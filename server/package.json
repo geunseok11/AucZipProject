@@ -1,0 +1,42 @@
+{
+  "name": "auczip",
+  "version": "1.0.0",
+  "description": "auczip",
+  "main": "index.js",
+  "scripts": {
+    "te": "jest __test__/server.test.js",
+    "test": "NODE_ENV=test jest --silent",
+    "server-start": "nodemon server/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "html-loader": "^0.5.5",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^5.5.1",
+    "style-loader": "^1.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "helmet": "^3.23.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3"
+  }
+}
