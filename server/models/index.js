@@ -37,4 +37,4 @@ db.Sequelize = Sequelize;
 module.exports = db;
 
 
-//npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+//npx sequelize-cli model:generate --name Building --attributes b_name:string,image:string,b_address:string
