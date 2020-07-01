@@ -2,7 +2,7 @@
   "name": "auczip",
   "version": "1.0.0",
   "description": "auczip",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "te": "jest __test__/server.test.js",
     "test": "NODE_ENV=test jest --silent",

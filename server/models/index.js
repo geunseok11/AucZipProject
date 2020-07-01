@@ -1,5 +1,4 @@
 'use strict';
-
 require('dotenv').config()
 const fs = require('fs');
 const path = require('path');
@@ -36,3 +35,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+
+//npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
