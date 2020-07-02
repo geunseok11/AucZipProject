@@ -9,7 +9,7 @@ module.exports = {
     let email=req.body.email
     let phone=req.body.phone
     let address=req.body.address
-
+    
     const secret='signupsalt';
     const cipher=crypto.createCipher('aes-256-cbc', secret)
                      .update(password, 'utf8', 'base64')+cipher.final('base64')
