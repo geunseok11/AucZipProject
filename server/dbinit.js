@@ -1,3 +1,4 @@
+require('./models/index');
 const { User, Building, userBuilding } = require('./models');
 const usersFixture = require('./fixtures/users.json');
 const buildingFixture = require('./fixtures/building.json');
@@ -15,6 +16,23 @@ async function test(){
             userInvest: 1000000})
     // await userBuilding.findAll({})
     console.log(c.dataValues);
+    userBuilding.findAll({
+        // attribute: ["roomname", "text", "id"],
+        include: [{
+          model: User,
+          required: false,
+          attribute: ["name"],
+        //   where: { name: { [Op.like]: '%ooth%' } }
+        //result : "name": "Toothpick",
+        }],
+        // order: [['id', 'desc']]
+      }).then((data, err) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(JSON.stringify(data), 'data');
+      });
+
     // await users.destroy({ where: {}, truncate: true });
     // await users.create(usersFixture[0]);
 }
