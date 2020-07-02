@@ -24,18 +24,33 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
     <title>AucZip App</title>
   </head>
   <body>
     <div>
       <div>
         <form >
-          <button class="signup">AucZip</button>
+          <button> AucZip </button>
         </form>
       </div>
     </div>
 
     <div id="root"></div>
-    
+    <script>
+      $(document).ready(function() {
+          $("#modalTest").click(function() {
+              $("signup").modal("show");
+          });
+
+      });
+
+      
+  </script>
   </body>
 </html>

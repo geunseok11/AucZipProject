@@ -1,6 +1,8 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import './App.css';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import Signup from './App_component/Signup';
+import Building from './pages/buildingList'
+import Button from '@material-ui/core/Button';
 
 class App extends React.Component {
   state = {
@@ -39,20 +41,33 @@ class App extends React.Component {
   return (
     <div className="App">
         <div>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#service">
-          서비스 소개
-          </button>
-          <button type="button" >
-          투자 정보
-          </button>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signup">
-          회원가입
-          </button>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">
-          로그인
-          </button>
+        <Button variant="contained" color="primary">
+             서비스 소개
+          </Button>
+          <Button variant="contained" color="primary" onClick="">
+             투자 정보
+          </Button>
+          {/* <Link to="/buildingList"></Link> */}
+          {/* <Switch>
+          <Route
+            exact
+            path="/buildingList"
+            render={() => <Building isLogin={isLogin} userInfo={userInfo}/>}
+          />
+          </Switch> */}
+          <Signup />
+          
+          <Button variant="contained" color="primary" isLogin={isLogin} 
+                handleLogin={this.handleLogin.bind(this)}
+                handleUserinfo={this.handleUserinfo.bind(this)}>
+             로그인
+          </Button>
         </div>
+        <div>building</div>
+        <div>news</div>
+        <div>contact</div>
       </div>
+      
       
     );
   }
