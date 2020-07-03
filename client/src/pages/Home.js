@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import Menu from "./components/Menu/Menu";
-import SignIn from "./components/Menu/Signin";
-import SignUp from "./components/Menu/Signup";
-import BuildingProducts from "./components/Index/BuildingProducts";
-import News from "./components/Index/News";
-import Contact from "./components/Index/Contact";
+// import Menu from "./components/Menu/Menu";
+// import SignIn from "./components/Menu/Signin";
+// import SignUp from "./components/Menu/Signup";
+// import BuildingProducts from "./components/Home/BuildingProducts";
+// import News from "./components/Home/News";
+// import Contact from "./components/Home/Contact";
 
 export default class Home extends Component {
   constructor(props) {
@@ -17,27 +17,10 @@ export default class Home extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handleClickOpen() {
-    this.setState({
-      open: true,
-    });
-  }
-
-  handleClose() {
-    this.setState({
-      open: false,
-    });
-  }
-
   render() {
     return (
       <div>
-        <Menu />
-        <SignIn onClose />
-        <SignUp />
-        <BuildingProducts />
-        <News />
-        <Contact />
+        <h1>HAHA</h1>
       </div>
     );
   }

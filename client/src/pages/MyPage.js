@@ -1,12 +1,7 @@
-import React, { Component } from 'react'
-​
-export default class MyPage extends Component {
-  redner() {
-    return (
-      <div>
-      
-      </div>
-    ); 
+import React, { Component } from "react";
+
+export default class Introduce extends Component {
+  render() {
+    return <div></div>;
   }
 }
-​
