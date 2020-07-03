@@ -23,26 +23,75 @@ export default class SignUp extends Component {
       phone: "",
       open: false,
     };
+    this.handleInputValue = this.handleInputValue.bind(this);
   }
-
+  handleInputValue = key => e => {
+    this.setState({ [key]: e.target.value });
+  };
   render() {
     return (
       <div>
-        <div className="userInfo">
-          아이디
-          <input type="text" placeholder="이름" /> <button>아이디 체크</button>
-          비밀번호
-          <input type="password" placeholder="비밀번호" />
-          비밀번호 확인
-          <input type="password" placeholder="비밀번호 확인" />
-          이름
-          <input type="text" placeholder="이름" />
-          이메일
-          <input type="text" placeholder="이메일" />
-          전화번호
-          <input type="text" placeholder="전화번호" />
-        </div>
+        <span>
+       
+       <Button variant="contained" color="primary" id="modalTest" data-toggle="modal" data-target="#signup">
+             회원가입
+          </Button>
+       
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              fetch('http://localhost:3000/Signup',{
+                method : 'POST',
+                body: JSON.stringify(this.state),
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+              })
+              .then( data => {
+                if (data.status === 201) {
+                  alert('가입되었습니다');
+                  
+                  this.props.history.push('/');
+                } else {
+                  alert('입력정보가 옳바르지 않습니다');
+                  
+                }
+              })
+              
+            }}
+          >
+      <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">회원가입</h4>
+            </div>
+            <div class="modal-body">
+            <TextField label="이름" type="text" name="username" onChange={this.handleInputValue("username")} /><br/>
 
+            <TextField label="email" type="email" name="email" onChange={this.handleInputValue("email")} /><br/>
+
+            <TextField label="password" type="password" name="password" onChange={this.handleInputValue("password")} /><br/>
+
+            <TextField label="password확인" type="password" name="password" onChange={this.handleInputValue("password")} /><br/>
+
+            <TextField label="mobile" type="text" name="mobile" onChange={this.handleInputValue("mobile")} /><br/>
+
+            <TextField label="address" type="text" name="address" onChange={this.handleInputValue("address")} /><br/>
+
+           
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+              <button type="submit" class="btn btn-primary" type="submit">완료</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     </form>
+     
+      </span>
         <div>
           <table>
             <tr>
