@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import MyInfo from "./components/MyPage/MyInfo";
+import MyInvestInfo from "./components/MyPage/MyInvestInfo";
 
 export default class MyPage extends Component {
   render(props) {
@@ -9,7 +11,7 @@ export default class MyPage extends Component {
         <div>
           <h1>Mypage</h1>
           <MyInfo /><br/>
-        <MyInvestInfo /><br/>
+        <MyInvestInfo /> <br/>
         </div>
       );
     } else {
