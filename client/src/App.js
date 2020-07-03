@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Introduce from "./pages/Introduce";
@@ -28,7 +28,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Menu
-          isLogin={this.isLogin}
+          isLogin={this.state.isLogin}
           handleLoginStatus={this.handleLoginStatus}
         />
         <Route path="/" component={Home} exact={true} />
