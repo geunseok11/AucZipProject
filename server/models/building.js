@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     b_address: DataTypes.STRING,
     b_invest: DataTypes.INTEGER,
     b_invest_goal: DataTypes.INTEGER,
-    b_people : DataTypes.STRING,
+    b_invest_user_num : DataTypes.INTEGER,
     b_info : DataTypes.STRING,
     b_location : DataTypes.STRING,
+    b_invest_start_date: DataTypes.DATE,
+    b_invest_end_date:DataTypes.DATE,
   }, {});
   Building.associate = function(models) {
     // associations can be defined here
