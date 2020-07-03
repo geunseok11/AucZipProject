@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    phone: DataTypes.INTEGER,
+    phone: DataTypes.STRING,
     address: DataTypes.STRING,
   }, {});
   User.associate = function(models) {

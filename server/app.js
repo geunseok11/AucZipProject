@@ -29,7 +29,7 @@ app.use('/user', userRouter);
 app.use('/building', buildingRouter);
 app.use('/board', boardRouter);
 
-  app.listen(port, () => {
+app.listen(port, () => {
     console.log(`server listen on ${port}`);
   });
 
