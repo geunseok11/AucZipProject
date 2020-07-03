@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-  post: (req, res) => {
+  get: (req, res) => {
     res.clearCookie('token',{path: '/'});
     res.redirect('/');
     res.end();
