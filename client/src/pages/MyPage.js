@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-​
+
 export default class MyPage extends Component {
-  render(){
+  render(props){
   if(props.isLogin){
     return(
         <div>
@@ -31,5 +31,3 @@ export default class MyPage extends Component {
   }
      
   }
-
-​
