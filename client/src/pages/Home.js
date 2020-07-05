@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
-import Menu from "./components/Menu/Menu";
-import SignIn from "./components/Menu/Signin";
-import SignUp from "./components/Menu/Signup";
-import BuildingProducts from "./components/Index/BuildingProducts";
-import News from "./components/Index/News";
-import Contact from "./components/Index/Contact";
+import BuildingProducts from "./components/Home/BuildingProducts";
+import News from "./components/Home/News";
+import Contact from "./components/Home/Contact";
+
+const useStyles = makeStyles({});
 
 export default class Home extends Component {
   constructor(props) {
@@ -13,31 +13,20 @@ export default class Home extends Component {
     this.state = {
       open: false,
     };
-    this.handleClickOpen = this.handleClickOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClickOpen() {
-    this.setState({
-      open: true,
-    });
-  }
-
-  handleClose() {
-    this.setState({
-      open: false,
-    });
   }
 
   render() {
     return (
       <div>
-        <Menu />
-        <SignIn onClose />
-        <SignUp />
+        <h3 className>주목할 투자 상품</h3>
         <BuildingProducts />
+        <hr />
+        <h3>최신 부동산 소식</h3>
         <News />
+        <hr />
+        <h3>Contact</h3>
         <Contact />
+        <hr />
       </div>
     );
   }
