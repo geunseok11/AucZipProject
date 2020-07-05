@@ -1,13 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-require('./models/index');
+const models = require('./models/index');
 const morgan = require('morgan');
 
 var userRouter = require("./routes/user");
 var buildingRouter = require("./routes/building");
 var boardRouter = require("./routes/board");
-
+models.sequelize.sync().then( () => {
+  console.log(" DB 연결 성공");
+}).catch(err => {
+  console.log("연결 실패");
+  console.log(err);
+})
 const app = express();
 
 const port = 3040;
