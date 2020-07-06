@@ -37,6 +37,7 @@ db.Sequelize = Sequelize;
 module.exports = db;
 //export NODE_ENV="production"
 //export RDS_PASSWORD=""
+//export SECRET_KEY="secret_auc"
 
 //npx sequelize-cli model:generate --name Building --attributes b_name:string,image:string,b_address:string
 //npx sequelize-cli model:generate --name userBuilding --attributes userId:string

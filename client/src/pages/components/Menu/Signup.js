@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import { Checkbox } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,23 +33,35 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   labelFocused: {},
+  table: {
+    color: "black",
+    width: "90%",
+    border: "3px dotted #ED8DB7",
+  },
 }));
 
 const Signup = (props) => {
   const classes = useStyles();
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     username: "",
-  //     email: "",
-  //     password: "",
-  //     mobile: "",
-  //     address: "",
-  //   };
-  //   this.handleInputValue = this.handleInputValue.bind(this);
-  // }
+
+  const [userInfo, setUserInfo] = useState({
+    memberId: "",
+    name: "",
+    email: "",
+    password: "",
+    rePassword: "",
+    mobile: "",
+    address: "",
+  });
+
+  const [isAllow, setIsAllow] = useState(false);
+
   const handleInputValue = (key) => (e) => {
-    // this.setState({ [key]: e.target.value });
+    setUserInfo({ ...userInfo, [key]: e.target.value });
+    console.log(userInfo);
+  };
+
+  const handleIsAllow = () => {
+    setIsAllow(!isAllow);
   };
 
   return (
@@ -67,22 +80,24 @@ const Signup = (props) => {
 
         <form
           onSubmit={(e) => {
+            console.log(userInfo, 'userInfo');
             e.preventDefault();
-            fetch("http://localhost:3000/Signup", {
+            // fetch("http://54.180.105.165:3040/user/signup", {
+            fetch("http://localhost:3040/user/signup", {
               method: "POST",
-              body: JSON.stringify(this.state),
+              body: JSON.stringify(userInfo),
               headers: {
                 "Content-Type": "application/json",
               },
             }).then((data) => {
-              if (data.status === 201) {
+              if (data.status === 200) {
                 alert("가입되었습니다");
-
                 this.props.history.push("/");
               } else {
                 alert("입력정보가 옳바르지 않습니다");
               }
-            });
+            })
+            .catch(e => console.log(e, 'err'))
           }}
         >
           <div
@@ -108,6 +123,7 @@ const Signup = (props) => {
                   </h4>
                 </div>
                 <div class="modal-body">
+                  {/* ID */}
                   <TextField
                     InputProps={{
                       classes: {
@@ -120,32 +136,13 @@ const Signup = (props) => {
                         focused: classes.labelFocused,
                       },
                     }}
-                    label="Name"
-                    type="text"
-                    name="username"
-                    onChange={handleInputValue("username")}
+                    label="ID"
+                    type="id"
+                    name="memberId"
+                    onChange={handleInputValue("memberId")}
                   />
                   <br />
-
-                  <TextField
-                    InputProps={{
-                      classes: {
-                        root: classes.inputRoot,
-                      },
-                    }}
-                    InputLabelProps={{
-                      classes: {
-                        root: classes.labelRoot,
-                        focused: classes.labelFocused,
-                      },
-                    }}
-                    label="Email"
-                    type="email"
-                    name="email"
-                    onChange={handleInputValue("email")}
-                  />
-                  <br />
-
+                  {/* Password */}
                   <TextField
                     InputProps={{
                       classes: {
@@ -164,7 +161,7 @@ const Signup = (props) => {
                     onChange={handleInputValue("password")}
                   />
                   <br />
-
+                  {/* Password 확인 */}
                   <TextField
                     InputProps={{
                       classes: {
@@ -179,11 +176,49 @@ const Signup = (props) => {
                     }}
                     label="Password 확인"
                     type="password"
-                    name="password"
-                    onChange={handleInputValue("password")}
+                    name="rePassword"
+                    onChange={handleInputValue("rePassword")}
                   />
                   <br />
-
+                  {/* Name */}
+                  <TextField
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Name"
+                    type="text"
+                    name="name"
+                    onChange={handleInputValue("name")}
+                  />
+                  <br />
+                  {/* Email */}
+                  <TextField
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Email"
+                    type="email"
+                    name="email"
+                    onChange={handleInputValue("email")}
+                  />
+                  <br />
+                  {/* Mobile */}
                   <TextField
                     InputProps={{
                       classes: {
@@ -202,7 +237,7 @@ const Signup = (props) => {
                     onChange={handleInputValue("mobile")}
                   />
                   <br />
-
+                  {/* Address : Advanced */}
                   <TextField
                     InputProps={{
                       classes: {
@@ -223,7 +258,8 @@ const Signup = (props) => {
                   <br />
                 </div>
                 <div>
-                  <table>
+                  {/* 개인정보 수집 동의 */}
+                  <table className={classes.table}>
                     <tr>
                       <th>[필수] 개인정보 수집 및 이용 동의</th>
                     </tr>
@@ -233,12 +269,17 @@ const Signup = (props) => {
                         인증 등 서비스 제공에 관련한 목적으로 개인정보를
                         처리합니다.
                       </td>
+                    </tr>
+                    <tr>
                       <td>2. 개인정보의 항목 : 성명, 이메일, </td>
+                    </tr>
+                    <tr>
                       <td>
                         3. 개인정보의 보유 및 이용 기간 : 회원 탈퇴 시까지 보유
                       </td>
                     </tr>
                     <tr>
+                      <Checkbox handleIsAllow={handleIsAllow}></Checkbox>
                       <td>동의</td>
                     </tr>
                   </table>
@@ -266,26 +307,3 @@ const Signup = (props) => {
 };
 
 export default Signup;
-
-// var input = document.getElementById('password');
-// input.onkeyup(function(){
-//   checkPassword(input.val());
-// });
-
-// var checkPassword = function(password){
-
-// var checkNumber = password.search(/[0-9]/g);
-// var checkEnglish = password.search(/[a-z]/ig);
-// if(checkNumber <0 || checkEnglish <0){
-//     alert("숫자와 영문자를 혼용하여야 합니다.");
-//     input.val('').focus();
-//     return false;
-// }
-// if(/(\w)\1\1\1/.test(password)){
-//     alert('같은 문자를 4번 이상 사용하실 수 없습니다.');
-//     input.val('').focus();
-//     return false;
-// }
-
-// return true;
-// }
