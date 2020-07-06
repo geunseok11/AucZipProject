@@ -24,7 +24,6 @@ export default class Home extends Component {
         <h3>최신 부동산 소식</h3>
         <News />
         <hr />
-        <h3>Contact</h3>
         <Contact />
         <hr />
       </div>
