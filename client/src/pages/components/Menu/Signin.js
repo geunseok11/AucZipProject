@@ -5,17 +5,11 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { withMobileDialog } from "@material-ui/core";
 
-// /* 색상 */
-// background: none;
-// &:hover {
-//   background: #68dbdf;
-
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
     },
-    //size: "medium",
   },
   modalDialog: {
     backgroundColor: "#121C48",
@@ -77,7 +71,7 @@ const SignIn = (props) => {
           e.preventDefault();
           fetch("http://localhost:3000/login", {
             method: "POST",
-            body: JSON.stringify(this.state),
+            body: JSON.stringify(userInfo),
             headers: {
               "Content-Type": "application/json",
             },
@@ -86,7 +80,7 @@ const SignIn = (props) => {
               alert("로그인에 성공하셨습니다");
 
               this.props.isLogin = true;
-              this.props.handleLogin(this.props.isLogin);
+              this.props.handleLogin(props.isLogin);
               this.props.handleUserinfo(data);
             } else {
               alert("로그인 실패하였습니다");
@@ -118,7 +112,7 @@ const SignIn = (props) => {
               </div> */}
 
               <div class="modal-body">
-                <TextField
+                {/* <TextField
                   InputProps={{
                     classes: {
                       root: classes.inputRoot,
@@ -135,7 +129,7 @@ const SignIn = (props) => {
                   name="email"
                   onChange={handleInputValue("email")}
                 />
-                <br />
+                <br /> */}
 
                 <TextField
                   InputProps={{
