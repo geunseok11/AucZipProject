@@ -8,6 +8,18 @@
     "phone": "01099993333",
     "bankName" : "우리은행",
     "bankNum" : "049-23-123456"
+  },
+  {
+    "email": "cho@codestates.com",
+    "username": "cho",
+    "password": "1234",
+    "name": "hong",
+    "memberId": "cho",
+    "phone": "0109111111",
+    "bankName" : "우리은행",
+    "bankNum" : "093-11-111111"
   }
+  
+
 ]
 
