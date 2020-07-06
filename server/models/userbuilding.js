@@ -4,22 +4,22 @@ const Building = require('./building');
 
 module.exports = (sequelize, DataTypes) => {
   const userBuilding = sequelize.define('userBuilding', {
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: User,
-        key: "userId"
-    },
-      allowNull: false
-    },
-    buildingId: {
-      type: DataTypes.INTEGER,
-      references: {
-          model: Building,
-          key: "buildingId"
-      },
-      allowNull: false
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: User,
+    //     key: "id"
+    // },
+    //   allowNull: false
+    // },
+    // buildingId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //       model: Building,
+    //       key: "id"
+    //   },
+    //   allowNull: false
+    // },
     userInvest: {
       type: DataTypes.INTEGER,
       allowNull: false

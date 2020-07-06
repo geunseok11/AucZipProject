@@ -6,7 +6,8 @@
     "name": "cho",
     "memberId": "abcd",
     "phone": "01099993333",
-    "address": "구미시"
+    "bankName" : "우리은행",
+    "bankNum" : "049-23-123456"
   }
 ]
 

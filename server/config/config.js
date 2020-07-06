@@ -6,9 +6,10 @@ module.exports = {
     host: 'localhost',
     dialect: 'mysql',
     logging: false,
+    port: 3306,
   },
   production: {
-    username: 'root',
+    username: 'admin',
     password: process.env.RDS_PASSWORD,
     database: 'auction',
     host: 'cho-database.ci952z5doahd.ap-northeast-2.rds.amazonaws.com',

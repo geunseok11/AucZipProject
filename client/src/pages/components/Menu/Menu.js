@@ -35,6 +35,9 @@ export default function Menu() {
         </Link>
         <Tab label="회원 가입" />
         <Tab label="로그인" />
+        <Link to="/Admin">
+          <Tab label="admin"></Tab>
+        </Link>
       </Tabs>
     </Paper>
   );
