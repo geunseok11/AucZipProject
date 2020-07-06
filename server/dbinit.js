@@ -15,7 +15,7 @@ async function test(){
     let c = await userBuilding.create({userId: d.id, buildingId: b.id, 
             userInvest: 1000000})
     // await userBuilding.findAll({})
-    console.log(c.dataValues);
+    console.log(d.dataValues);
     userBuilding.findAll({
         // attribute: ["roomname", "text", "id"],
         include: [{

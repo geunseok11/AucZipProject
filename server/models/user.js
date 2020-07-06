@@ -19,10 +19,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     phone: DataTypes.STRING,
     address: DataTypes.STRING,
+    money: DataTypes.INTEGER,
+    bankName: {
+      type:DataTypes.STRING,
+    },  
+    bankNum: DataTypes.STRING,
   }, {});
   User.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.userBuilding, { foreignKey: 'id' } )
+    User.hasMany(models.userBuilding, { foreignKey: 'userId' } )
   };
   return User;
 };

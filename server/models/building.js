@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Building.associate = function(models) {
     // associations can be defined here
-    Building.hasMany(models.userBuilding, { foreignKey: 'id' })
+    Building.hasMany(models.userBuilding, { foreignKey: 'BuildingId' })
     };
   return Building;
 };
