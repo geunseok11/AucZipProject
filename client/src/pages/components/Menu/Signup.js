@@ -37,7 +37,7 @@ const Signup = () => {
   //   this.handleInputValue = this.handleInputValue.bind(this);
   // }
   const handleInputValue = (key) => (e) => {
-    this.setState({ [key]: e.target.value });
+    // this.setState({ [key]: e.target.value });
   };
 
   return (
