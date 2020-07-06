@@ -1,51 +1,89 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
 
-export default function Menu() {
-  const [value, setValue] = React.useState(2);
+import titleImage from "./AupZip_title_107x41.png";
+import Signin from "./Signin";
+import Signup from "./Signup";
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  toolBar: {
+    backgroundColor: "#121C48",
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  button: {
+    "&:hover": {
+      background: "#68DCDC",
+      color: "black",
+    },
+    fontSize: "2.1rem",
+    marginLeft: "2rem",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
+    hover: {
+      color: "black",
+    },
+  },
+}));
+
+const Menu = () => {
+  const classes = useStyles();
+
+  // const [buttonStatus, setButtonStatus] = useState({
+  //   background: "121C48",
+  // });
+
+  // const buttonClickHandle = () => {
+  //   setButtonStatus;
+  // };
 
   return (
-    <Paper square>
-      <Tabs
-        value={value}
-        indicatorColor="primary"
-        textColor="primary"
-        //variant="fullWidth"
-        onChange={handleChange}
-        scrollButtons="on"
-        centered
-      >
-        <Link to="/">
-          <Tab label="Home"></Tab>
-        </Link>
-        <Link to="/introduce">
-          <Tab label="서비스 소개" />
-        </Link>
-        <Link to="/building">
-          <Tab label="투자 상품" />
-        </Link>
-        <Tab label="회원 가입" />
-        <Tab label="로그인" />
-      </Tabs>
-    </Paper>
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar className={classes.toolBar}>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+          >
+            <Link to="/">
+              <img src={titleImage} />
+            </Link>
+          </IconButton>
+          <Typography variant="h4" className={classes.title}></Typography>
+          <Button className={classes.button} color="inherit">
+            <Link className={classes.link} to="/introduce">
+              서비스 소개
+            </Link>
+          </Button>
+          <Button className={classes.button} color="inherit">
+            <Link className={classes.link} to="building">
+              투자 상품
+            </Link>
+          </Button>
+          <Signup />
+          <Signin />
+        </Toolbar>
+      </AppBar>
+    </div>
   );
-}
+};
 
-{
-  /* <div position="static">
-      <Link to="/">Home</Link>
-      <Link to="/introduce">서비스 소개</Link>
-      <Link to="/building">투자 상품</Link>
-      <Link to="/mypage">My Page</Link>
-      <button>로그아웃</button>
-    </div> */
-}
+export default Menu;
