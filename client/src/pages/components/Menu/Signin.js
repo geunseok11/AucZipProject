@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
     //size: "medium",
-    fontSize: "2rem",
   },
   modalDialog: {
     backgroundColor: "#121C48",
@@ -35,9 +34,20 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2.1rem",
     marginLeft: "1rem",
   },
+  inputRoot: {
+    fontSize: "2rem",
+  },
+  labelRoot: {
+    fontSize: 30,
+    color: "#121C48",
+    "&$labelFocused": {
+      color: "#ED8DB7",
+    },
+  },
+  labelFocused: {},
 }));
 
-const SignIn = () => {
+const SignIn = (props) => {
   const classes = useStyles();
 
   const [userInfo, setUserInfo] = useState({
@@ -109,7 +119,18 @@ const SignIn = () => {
 
               <div class="modal-body">
                 <TextField
-                  label="email"
+                  InputProps={{
+                    classes: {
+                      root: classes.inputRoot,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.labelRoot,
+                      focused: classes.labelFocused,
+                    },
+                  }}
+                  label="Email"
                   type="email"
                   name="email"
                   onChange={handleInputValue("email")}
@@ -117,7 +138,18 @@ const SignIn = () => {
                 <br />
 
                 <TextField
-                  label="id"
+                  InputProps={{
+                    classes: {
+                      root: classes.inputRoot,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.labelRoot,
+                      focused: classes.labelFocused,
+                    },
+                  }}
+                  label="ID"
                   type="text"
                   name="id"
                   onChange={handleInputValue("id")}
@@ -125,7 +157,18 @@ const SignIn = () => {
                 <br />
 
                 <TextField
-                  label="password"
+                  InputProps={{
+                    classes: {
+                      root: classes.inputRoot,
+                    },
+                  }}
+                  InputLabelProps={{
+                    classes: {
+                      root: classes.labelRoot,
+                      focused: classes.labelFocused,
+                    },
+                  }}
+                  label="Password"
                   type="password"
                   name="password"
                   onChange={handleInputValue("password")}
