@@ -21,9 +21,20 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2.1rem",
     marginLeft: "2rem",
   },
+  inputRoot: {
+    fontSize: "2rem",
+  },
+  labelRoot: {
+    fontSize: 30,
+    color: "#121C48",
+    "&$labelFocused": {
+      color: "#ED8DB7",
+    },
+  },
+  labelFocused: {},
 }));
 
-const Signup = () => {
+const Signup = (props) => {
   const classes = useStyles();
   // constructor(props) {
   //   super(props);
@@ -98,7 +109,18 @@ const Signup = () => {
                 </div>
                 <div class="modal-body">
                   <TextField
-                    label="이름"
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Name"
                     type="text"
                     name="username"
                     onChange={handleInputValue("username")}
@@ -106,7 +128,18 @@ const Signup = () => {
                   <br />
 
                   <TextField
-                    label="email"
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Email"
                     type="email"
                     name="email"
                     onChange={handleInputValue("email")}
@@ -114,7 +147,18 @@ const Signup = () => {
                   <br />
 
                   <TextField
-                    label="password"
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Password"
                     type="password"
                     name="password"
                     onChange={handleInputValue("password")}
@@ -122,7 +166,18 @@ const Signup = () => {
                   <br />
 
                   <TextField
-                    label="password확인"
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Password 확인"
                     type="password"
                     name="password"
                     onChange={handleInputValue("password")}
@@ -130,7 +185,18 @@ const Signup = () => {
                   <br />
 
                   <TextField
-                    label="mobile"
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Mobile"
                     type="text"
                     name="mobile"
                     onChange={handleInputValue("mobile")}
@@ -138,7 +204,18 @@ const Signup = () => {
                   <br />
 
                   <TextField
-                    label="address"
+                    InputProps={{
+                      classes: {
+                        root: classes.inputRoot,
+                      },
+                    }}
+                    InputLabelProps={{
+                      classes: {
+                        root: classes.labelRoot,
+                        focused: classes.labelFocused,
+                      },
+                    }}
+                    label="Address"
                     type="text"
                     name="address"
                     onChange={handleInputValue("address")}
