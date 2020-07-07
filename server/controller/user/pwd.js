@@ -2,8 +2,10 @@ const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-  get: (req, res) => {
+  post: (req, res) => {
     // console.log(req.session);
+    let originalPwd=req.body.password;
+    let newPwd=req.body.newPwd;
     let token = req.cookies.token; 
     // console.log(token);
     
@@ -17,8 +19,17 @@ module.exports = {
       //console.log(email);
       Users.findOne({where: {memberId: memberId}})
       .then(data => {
-        res.status(200).send(data.dataValues);
-        res.end();
+        if(data.dataValues.password===originalPwd){  
+            Users.update({password:newPwd}, {where: {memberId: memberId}})
+            .then(result => {
+                res.status(200).send('password changed');
+                res.end();
+            })
+            .catch(err => {
+               console.error(err);
+            });
+        
+        }
       })
     } else {
       //권한 없는 경우

@@ -18,6 +18,9 @@ module.exports = {
       b_address: {
         type: Sequelize.STRING
       },
+      b_evaluation: {
+        type: Sequelize.INTEGER
+      },
       b_invest: {
         type: Sequelize.INTEGER
       },
@@ -31,6 +34,18 @@ module.exports = {
         type: Sequelize.STRING
       },
       b_location : {
+        type: Sequelize.STRING
+      },
+      b_use : {
+        type: Sequelize.STRING
+      },
+      b_size : {
+        type: Sequelize.STRING
+      },
+      b_due : {
+        type: Sequelize.STRING
+      },
+      b_views : {
         type: Sequelize.STRING
       },
       b_invest_start_date:{
