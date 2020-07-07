@@ -6,18 +6,27 @@ import NewsItem from "./NewsItem";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: "100%",
+  },
+  tableHeader: {
+    fontSize: "2rem",
+    textAlign: "center",
   },
 });
 
 const News = () => {
+  const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.root}>
       <table>
-        <th>
-          <td>최신 부동산 소식</td>
+        <th className={classes.tableHeader}>
+          <td colSpan="4">최신 부동산 뉴스</td>
         </th>
         <tr>
+          <td>
+            <NewsItem />
+          </td>
           <td>
             <NewsItem />
           </td>
