@@ -3,6 +3,8 @@
 // croncmd="$whichnode heraldNews.js"
 // crontab "10 2 * * * $croncmd  // every 2.10am
 
+// SET @@global.sql_mode= 'NO_ENGINE_SUBSTITUTION';
+
 const { News } = require('../models');
 
 const request = require("request-promise");
