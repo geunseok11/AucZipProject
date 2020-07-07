@@ -1,4 +1,4 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 // const crypto=require('crypto');
 
@@ -7,7 +7,7 @@ module.exports = {
     let memberId=req.body.memberId
     let password=req.body.password
 
-    User.findOne({where: {memberId : memberId}})
+    Users.findOne({where: {memberId : memberId}})
     .then(data => {
       //console.log(data);
       if(!data){  //회원가입이 안된 경우
