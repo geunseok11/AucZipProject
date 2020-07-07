@@ -45,7 +45,7 @@ const Signup = (props) => {
 
   const [userInfo, setUserInfo] = useState({
     memberId: "",
-    username: "",
+    name: "",
     email: "",
     password: "",
     rePassword: "",
@@ -56,8 +56,8 @@ const Signup = (props) => {
   const [isAllow, setIsAllow] = useState(false);
 
   const handleInputValue = (key) => (e) => {
-    setUserInfo({ [key]: e.target.value });
-    console.log(key, e.target.value);
+    setUserInfo({ ...userInfo, [key]: e.target.value });
+    console.log(userInfo);
   };
 
   const handleIsAllow = () => {
@@ -80,8 +80,10 @@ const Signup = (props) => {
 
         <form
           onSubmit={(e) => {
+            console.log(userInfo, 'userInfo');
             e.preventDefault();
-            fetch("http://54.180.105.165:3040/user/signup", {
+            // fetch("http://54.180.105.165:3040/user/signup", {
+            fetch("http://localhost:3040/user/signup", {
               method: "POST",
               body: JSON.stringify(userInfo),
               headers: {
@@ -94,7 +96,8 @@ const Signup = (props) => {
               } else {
                 alert("입력정보가 옳바르지 않습니다");
               }
-            });
+            })
+            .catch(e => console.log(e, 'err'))
           }}
         >
           <div
@@ -192,8 +195,8 @@ const Signup = (props) => {
                     }}
                     label="Name"
                     type="text"
-                    name="username"
-                    onChange={handleInputValue("username")}
+                    name="name"
+                    onChange={handleInputValue("name")}
                   />
                   <br />
                   {/* Email */}

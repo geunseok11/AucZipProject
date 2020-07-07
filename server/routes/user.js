@@ -7,7 +7,7 @@ const { userController } = require('../controller');
 router.post('/signin', userController.signin.post);
 
 // * POST /user/signout
-// router.get('/signout', userController.signout.get);
+router.get('/signout', userController.signout.get);
 
 // * POST /user/signup
 router.post('/signup', userController.signup.post);

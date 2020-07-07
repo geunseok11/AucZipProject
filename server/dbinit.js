@@ -10,6 +10,7 @@ async function test(){
     await userBuilding.destroy({ where: {}, truncate: {cascade: true }});
 
     let d = await User.create(usersFixture[0]);
+    await User.create(usersFixture[1]);
     console.log(d.id, 'User id??')
     let b = await Building.create(buildingFixture[0]);
     let c = await userBuilding.create({userId: d.id, buildingId: b.id, 

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Introduce from "./pages/Introduce";
 import MyPage from "./pages/MyPage";
 import Building from "./pages/Building";
+import Admin from "./pages/Admin"
 import Menu from "./pages/components/Menu/Menu";
 
 import Signup from "./pages/components/Menu/Signup";
@@ -52,6 +53,7 @@ export default class App extends Component {
         <Route exact path="/introduce" render={() => <Introduce />} />
         <Route exact path="/building" render={() => <Building />} />
         <Route exact path="/mypage" render={() => <MyPage />} />
+        <Route exact path="/admin" render={() => <Admin />} />
         <Route
           exact
           path="/signup"
