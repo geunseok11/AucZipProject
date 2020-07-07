@@ -7,6 +7,6 @@ router.get('/news', buildingController.news.get);
 
 router.get('/info', buildingController.info.get);
 
-router.post('/', buildingController.post);
+// router.post('/', buildingController.post);
 
 module.exports = router;
