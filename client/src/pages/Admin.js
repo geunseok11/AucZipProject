@@ -8,7 +8,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-// import Title from './components/Admin/Title';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -63,7 +62,7 @@ export default function Admin() {
     console.log(Items, 'items is')
 }
   const classes = useStyles();
-  const apiUrl = process.env.NODE_ENV === 'production' ? 'https://example.com' : 'http://localhost:3040';
+  const apiUrl = process.env.NODE_ENV === 'production' ? 'http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040' : 'http://localhost:3040';
   // axios.get(apiUrl) 
   // .then(
   //   (result) => {
