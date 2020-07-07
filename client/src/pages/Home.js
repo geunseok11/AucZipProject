@@ -18,10 +18,8 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <h3 className>주목할 투자 상품</h3>
         <BuildingProducts />
         <hr />
-        <h3>최신 부동산 소식</h3>
         <News />
         <hr />
         <Contact />

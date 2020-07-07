@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Checkbox } from "@material-ui/core";
+import Snackbar from "@material-ui/core/Snackbar";
+import Slide from "@material-ui/core/Slide";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,28 +42,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function TransitionUp(props) {
+  return <Slide {...props} direction="up" />;
+}
+
 const Signup = (props) => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const [transition, setTransition] = React.useState(undefined);
 
   const [userInfo, setUserInfo] = useState({
     memberId: "",
-    username: "",
+    name: "",
     email: "",
     password: "",
     rePassword: "",
-    mobile: "",
+    phone: "",
     address: "",
   });
 
   const [isAllow, setIsAllow] = useState(false);
 
   const handleInputValue = (key) => (e) => {
-    setUserInfo({ [key]: e.target.value });
-    console.log(key, e.target.value);
+    setUserInfo({ ...userInfo, [key]: e.target.value });
+    console.log(userInfo);
   };
 
   const handleIsAllow = () => {
     setIsAllow(!isAllow);
+  };
+
+  const handleClick = (Transition) => () => {
+    setTransition(() => Transition);
+    setOpen(true);
   };
 
   return (
@@ -90,7 +103,7 @@ const Signup = (props) => {
             }).then((data) => {
               if (data.status === 200) {
                 alert("가입되었습니다");
-                this.props.history.push("/");
+                //props.history.push("/");
               } else {
                 alert("입력정보가 옳바르지 않습니다");
               }
@@ -134,7 +147,7 @@ const Signup = (props) => {
                       },
                     }}
                     label="ID"
-                    type="id"
+                    type="text"
                     name="memberId"
                     onChange={handleInputValue("memberId")}
                   />
@@ -192,8 +205,8 @@ const Signup = (props) => {
                     }}
                     label="Name"
                     type="text"
-                    name="username"
-                    onChange={handleInputValue("username")}
+                    name="name"
+                    onChange={handleInputValue("name")}
                   />
                   <br />
                   {/* Email */}
@@ -215,7 +228,7 @@ const Signup = (props) => {
                     onChange={handleInputValue("email")}
                   />
                   <br />
-                  {/* Mobile */}
+                  {/* Phone */}
                   <TextField
                     InputProps={{
                       classes: {
@@ -228,10 +241,10 @@ const Signup = (props) => {
                         focused: classes.labelFocused,
                       },
                     }}
-                    label="Mobile"
+                    label="Phone"
                     type="text"
-                    name="mobile"
-                    onChange={handleInputValue("mobile")}
+                    name="phone"
+                    onChange={handleInputValue("phone")}
                   />
                   <br />
                   {/* Address : Advanced */}
@@ -290,8 +303,13 @@ const Signup = (props) => {
                   >
                     취소
                   </button>
-                  <button type="submit" class="btn btn-primary" type="submit">
-                    완료
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    type="submit"
+                    onClick={handleClick(TransitionUp)}
+                  >
+                    회원 가입
                   </button>
                 </div>
               </div>
