@@ -5,7 +5,7 @@ const Nightmare=require("nightmare");
 const nightmare=Nightmare({show:false});  // show browser
 const fs=require('fs');
 
-const { Building } = require('../models');
+const { Buildings } = require('../models');
 
 String.prototype.replaceAll = function(A, B) {
    return this.split(A).join(B);
@@ -126,22 +126,22 @@ async function auctionScraper(){
     items=await replaceProcess(items)
     items=await scrapeImageUrl(items);
     
-    Building.destroy({
-      where: {},
-      truncate: true
- })
+//     Buildings.destroy({
+//       where: {},
+//       truncate: true
+//  })
 
  for(let i=0 ; i<items.length ; i++){
-   Building.findOne({where: { b_name: items[i].casenum }}) //다른 사용자와 아이디 겹치지 않게
+   Buildings.findOne({where: { b_name: items[i].casenum }}) 
    .then((data) => {
      if(data){
       if(!items[i].evaluation) items[i].evaluation=0;
       if(items[i].evaluation) items[i].evaluation=Number(String(items[i].evaluation).replaceAll(',','') )
-      Building.update({image:items[i].imageUrl, b_evaluation:items[i].evaluation, b_invest_goal:items[i].evaluation*1.2, 
+      Buildings.update({image:items[i].imageUrl, b_evaluation:items[i].evaluation, b_invest_goal:items[i].evaluation*1.2, 
          b_info:items[i].summary, b_location:items[i].location, b_use:items[i].use, b_size:items[i].size, b_due:items[i].due,
           b_views:items[i].views}, {where: {b_name: items[i].casenum }})
       .then(result => {
-         console.log(`building ${items[i].casenum} info updated`);
+         console.log(`Buildings ${items[i].casenum} info updated`);
       })
       .catch(err => {
          console.error(err);
@@ -150,7 +150,7 @@ async function auctionScraper(){
      else {
       if(!items[i].evaluation) items[i].evaluation=0;
       if(items[i].evaluation) items[i].evaluation=Number(String(items[i].evaluation).replaceAll(',','') )
-      Building.create({b_name:items[i].casenum, image:items[i].imageUrl, 
+      Buildings.create({b_name:items[i].casenum, image:items[i].imageUrl, 
          b_evaluation:items[i].evaluation, b_invest_goal:items[i].evaluation*1.2 ,b_info:items[i].summary, 
          b_location:items[i].location, b_use:items[i].use, b_size:items[i].size, b_due:items[i].due,
           b_views:items[i].views})
