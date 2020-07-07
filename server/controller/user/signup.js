@@ -33,7 +33,6 @@ module.exports = {
         User.findOne({where:{bankNum:accountNum}}).then(data =>{
           if(data){
             accountNum=String(Math.floor(random()*10000000000))
-            // continue;
           }
           else{
             Num=true;
