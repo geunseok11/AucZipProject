@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { fakedata } from "./components/Buliding/fakedata";
 
 import BuildingProducts from "./components/Home/BuildingProducts";
 import News from "./components/Home/News";
@@ -12,16 +13,24 @@ export default class Home extends Component {
     super(props);
     this.state = {
       open: false,
+      currentBuilding: fakedata[0],
+      buildings: fakedata
     };
+    this.handleBuildingTitleClick=this.handleBuildingTitleClick.bind(this)
+  }
+  handleBuildingTitleClick(building) {
+    this.setState({
+      currentBuilding: building
+    });
   }
 
   render() {
     return (
       <div>
-        <h3 className>주목할 투자 상품</h3>
-        <BuildingProducts />
+        <BuildingProducts buildings={this.state.buildings} 
+        handleBuildingTitleClick={this.handleBuildingTitleClick}
+        />
         <hr />
-        <h3>최신 부동산 소식</h3>
         <News />
         <hr />
         <Contact />

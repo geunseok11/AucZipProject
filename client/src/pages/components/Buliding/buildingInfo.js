@@ -1,16 +1,33 @@
 import React from "react";
+import { fakedata } from "./fakedata";
 
 export default class buildingInfo extends React.Component {
-  render() {
-    return (
-      <div>
-        <div>건물 이름</div>
-        <img></img>
-        <div>건물 정보</div>
-        <div>건물 주소</div>
-        <div>google map</div>
-        <button>투자하기</button>
-      </div>
-    );
+  constructor(props){
+    super(props);
+    this.state = {
+      currentBuilding: fakedata[3],
+      buildings: fakedata
+    }
+  }
+
+
+  render(props) {
+
+
+    <div>
+    <iframe 
+    src={`${this.state.currentBuilding.imageUrl}`}
+      >
+
+    </iframe>
+        <div>사용용도 {this.state.currentBuilding.use}</div>
+        <div>주소 {this.state.currentBuilding.location}</div>
+        <div>{this.state.currentBuilding.size}</div>
+        <div>가격 {this.state.currentBuilding.evaluation}</div>
+        <div>기간 {this.state.currentBuilding.due}</div>
+        <div>{this.state.currentBuilding.views} views</div>
+
+
+     </div>
   }
 }
