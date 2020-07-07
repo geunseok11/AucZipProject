@@ -3,5 +3,6 @@ module.exports = {
   signout: require('./signout'),
   signup: require('./signup'),
   info: require('./info'),
-  pwd: require('./pwd')
+  pwd: require('./pwd'),
+  googleSignin: require('./googleSignin'),
 };

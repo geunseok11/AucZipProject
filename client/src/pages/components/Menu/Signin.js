@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { withMobileDialog } from "@material-ui/core";
+import GoogleSignin from './googleSignin.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,12 +47,12 @@ const SignIn = (props) => {
 
   const [userInfo, setUserInfo] = useState({
     email: "",
-    id: "",
+    memberId: "",
     password: "",
   });
 
   const handleInputValue = (key) => (e) => {
-    setUserInfo({ [key]: e.target.value });
+    setUserInfo({ ...userInfo, [key]: e.target.value });
   };
 
   return (
@@ -69,19 +70,21 @@ const SignIn = (props) => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          fetch("http://localhost:3000/login", {
+          fetch("http://localhost:3040/user/signin", {
             method: "POST",
             body: JSON.stringify(userInfo),
             headers: {
               "Content-Type": "application/json",
             },
           }).then((data) => {
+            console.log(data, 'data')
             if (data.status === 200) {
               alert("로그인에 성공하셨습니다");
 
-              this.props.isLogin = true;
-              this.props.handleLogin(props.isLogin);
-              this.props.handleUserinfo(data);
+              // console.log(props, 'porps')
+              // this.props.isLogin = true;
+              // this.props.handleLogin(props.isLogin);
+              // this.props.handleUserinfo(data);
             } else {
               alert("로그인 실패하였습니다");
             }
@@ -145,8 +148,8 @@ const SignIn = (props) => {
                   }}
                   label="ID"
                   type="text"
-                  name="id"
-                  onChange={handleInputValue("id")}
+                  name="memberId"
+                  onChange={handleInputValue("memberId")}
                 />
                 <br />
 
@@ -168,6 +171,7 @@ const SignIn = (props) => {
                   onChange={handleInputValue("password")}
                 />
                 <br />
+                <GoogleSignin />
               </div>
               <div class="modal-footer">
                 <div>sign in Google</div>

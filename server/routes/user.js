@@ -17,4 +17,6 @@ router.get('/info', userController.info.get);
 
 router.get('/pwd', userController.pwd.post);
 
+router.post('/googleSignin', userController.googleSignin.post);
+
 module.exports = router;

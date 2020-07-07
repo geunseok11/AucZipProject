@@ -1,4 +1,4 @@
-const { Users } = require('../../models');
+const { User } = require('../../models');
 // const crypto=require('crypto');
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
     }                 
 
     let accountNum;
-    Users.findOne({where: { memberId: memberId }}) //다른 사용자와 아이디 겹치지 않게
+    User.findOne({where: { memberId: memberId }}) //다른 사용자와 아이디 겹치지 않게
     .then((data) => {
       if(data){
         res.status(409).send('memberId already exists');
@@ -30,17 +30,17 @@ module.exports = {
         accountNum=String(Math.floor(random()*10000000000))
 
         while(!Num){
-        Users.findOne({where:{bankNum:accountNum}}).then(data =>{
+        User.findOne({where:{bankNum:accountNum}}).then(data =>{
           if(data){
             accountNum=String(Math.floor(random()*10000000000))
-            continue;
+            // continue;
           }
           else{
             Num=true;
           }
         })
         }
-        Users.create({name, memberId, password, email, phone, address, bankNum:accountNum})
+        User.create({name, memberId, password, email, phone, address, bankNum:accountNum})
         .then((data) => {
           res.status(200).send('signup completed');
           res.end();
