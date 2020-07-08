@@ -1,5 +1,6 @@
 const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
+require('dotenv').config()
 // const crypto=require('crypto');
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     console.log(req.body, 'body')
     Users.findOne({where: {memberId : memberId}})
     .then(data => {
-      //console.log(data);
+      // console.log(data);
       if(!data){  //회원가입이 안된 경우
         res.status(404);
         res.end('unvalid user');
@@ -32,8 +33,10 @@ module.exports = {
               res.status(500);
               res.end();
             } else {
-              res.status(200).cookie('token', token);
-              res.json({id: data.dataValues.id});
+              console.log('token', token)
+              // res.status(200).cookies('token', token);
+              res.append('Set-Cookie', `token=${token};SameSite=none;`)
+              res.json({id: data.dataValues.id, memberId: data.dataValues.memberId});
               res.end();
             }
           })

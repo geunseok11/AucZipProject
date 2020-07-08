@@ -1,10 +1,10 @@
 import React from 'react';
-// import GoogleLogin from 'react-google-login';
-// or
+import { withRouter } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import axios from 'axios';
  
-const responseGoogle = (googleUser) => {
+const responseGoogle = (googleUser, props) => {
+  if(googleUser.profileObj === undefined)return;
   console.log(googleUser);
   let obj ={}
   let user = googleUser.profileObj;
@@ -21,17 +21,21 @@ const responseGoogle = (googleUser) => {
   .then((result) => {
     // console.log(result.data, 'get data')
     console.log(result, 'result')
+    props.handleClose();
+    props.history.push('/admin');
   });
 }
  
-export default function Admin() {
+function Admin(props) {
   return (
   <GoogleLogin
     clientId="51190329735-ciio9gh389l8k5hus2a2584qps7req7j.apps.googleusercontent.com"
     buttonText="google Login"
-    onSuccess={responseGoogle}
+    onSuccess={result => responseGoogle(result, props)}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />
   )
 }
+
+export default withRouter(Admin)
