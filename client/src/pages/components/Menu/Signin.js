@@ -4,7 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import Modal from '@material-ui/core/Modal';
 import TextField from "@material-ui/core/TextField";
-import GoogleSignin from './googleSignin.js';
+
+import { withMobileDialog } from "@material-ui/core";
+import GoogleSignin from "./googleSignin.js";
+
 import axios from 'axios';
 
 function rand() {
@@ -66,7 +69,8 @@ const useStyles = makeStyles((theme) => ({
   labelFocused: {},
 }));
 
-function Signin(props) {
+
+const SignIn = ({ handleIsLogin }) => {
   const classes = useStyles();
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -159,6 +163,29 @@ function Signin(props) {
         className={classes.button} onClick={handleOpen}>
         로그인
       </Button>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          fetch("http://localhost:3040/user/signin", {
+            method: "POST",
+            body: JSON.stringify(userInfo),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }).then((data) => {
+            console.log(data, "data");
+            if (data.status === 200) {
+              alert("로그인에 성공하셨습니다");
+              handleIsLogin();
+              // console.log(props, 'porps')
+              // this.props.isLogin = true;
+              // this.props.handleLogin(props.isLogin);
+              // this.props.handleUserinfo(data);
+            } else {
+              alert("로그인 실패하였습니다");
+            }
+          });
+        }}
       {/* <button type="button" onClick={handleOpen} className={classes.button}>
         로그인
       </button> */}

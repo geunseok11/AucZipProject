@@ -45,13 +45,11 @@ const useStyles = makeStyles((theme) => ({
 const Menu = () => {
   const classes = useStyles();
 
-  // const [buttonStatus, setButtonStatus] = useState({
-  //   background: "121C48",
-  // });
+  const [isLogin, setIsLogin] = useState(false);
 
-  // const buttonClickHandle = () => {
-  //   setButtonStatus;
-  // };
+  const handleIsLogin = () => {
+    setIsLogin(!isLogin);
+  };
 
   return (
     <div className={classes.root}>
@@ -78,8 +76,25 @@ const Menu = () => {
               투자 상품
             </Link>
           </Button>
-          <Signup />
-          <Signin />
+          {isLogin ? (
+            <Button className={classes.button} color="inherit">
+              <Link className={classes.link} to="mypage">
+                마이페이지
+              </Link>
+            </Button>
+          ) : (
+            <Signup handleIsLogin={handleIsLogin} />
+          )}
+          {isLogin ? (
+            <Button className={classes.button} color="inherit">
+              로그아웃
+            </Button>
+          ) : (
+            <Signin handleIsLogin={handleIsLogin} />
+          )}
+
+          {/* <Signup isLogin={handleIsLogin} />
+          <Signin isLogin={handleIsLogin} /> */}
         </Toolbar>
       </AppBar>
     </div>
