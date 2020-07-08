@@ -1,4 +1,5 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
+const { allowedNodeEnvironmentFlags } = require('process');
 // const crypto=require('crypto');
 
 module.exports = {
@@ -12,34 +13,18 @@ module.exports = {
     console.log(req.body, 'body')
     // const secret='signupsalt';
     // const cipher=crypto.createCipher('aes-256-cbc', secret)
-    //                  .update(password, 'utf8', 'base64')+cipher.final('base64')
-    var seed = 10;
-    function random() {
-    var x = Math.sin(seed++) * 1000000;
-    return x - Math.floor(x);
-    }                 
+    //                  .update(password, 'utf8', 'base64')+cipher.final('base64')         
 
-    let accountNum;
-    User.findOne({where: { memberId: memberId }}) //다른 사용자와 아이디 겹치지 않게
+
+
+    Users.findOne({where: { memberId: memberId }}) //다른 사용자와 아이디 겹치지 않게
     .then((data) => {
       if(data){
         res.status(409).send('memberId already exists');
         res.end();
       } else {
-        let Num=false;
-        accountNum=String(Math.floor(random()*10000000000))
-
-        while(!Num){
-        User.findOne({where:{bankNum:accountNum}}).then(data =>{
-          if(data){
-            accountNum=String(Math.floor(random()*10000000000))
-          }
-          else{
-            Num=true;
-          }
-        })
-        }
-        User.create({name, memberId, password, email, phone, address, bankNum:accountNum})
+        let accountNum=String(Math.floor(Math.random()*10000000000))
+        Users.create({name, memberId, password, email, phone, address, bankNum:accountNum})
         .then((data) => {
           res.status(200).send('signup completed');
           res.end();
