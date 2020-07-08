@@ -1,4 +1,5 @@
 const { News } = require('../../models');
+const { read } = require('fs');
 
 module.exports = {
     get: (req, res) => {
@@ -11,7 +12,7 @@ module.exports = {
              res.end('no news');
             } else { 
               res.status(200)
-              res.json(data.dataValues)
+              res.json(data)
               }
           })
     }
