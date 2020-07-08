@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter,Route, Link,Switch } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -15,11 +16,13 @@ const useStyles = makeStyles({
   },
 });
 
-const BuildingProductsItem = () => {
+const BuildingProductsItem = (props) => {
+  console.log(props)
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
+      <Link to='/01'>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -30,7 +33,7 @@ const BuildingProductsItem = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            BuildingItem
+            
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             contents contents contents contents contents contents contents
@@ -41,6 +44,7 @@ const BuildingProductsItem = () => {
         </CardContent>
       </CardActionArea>
       <CardActions></CardActions>
+      </Link>
     </Card>
   );
 };
