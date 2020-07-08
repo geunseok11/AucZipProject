@@ -75,7 +75,7 @@ export default function Admin() {
     axios
       .get(apiUrl+'/admin/userList')
       .then((result) => {
-        // console.log(result.data, 'get data')
+        console.log(result.data, 'get data')
         setItems(result.data)
       });
   }, []);

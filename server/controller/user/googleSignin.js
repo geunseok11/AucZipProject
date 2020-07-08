@@ -1,4 +1,4 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 // const crypto=require('crypto');
 
@@ -10,12 +10,12 @@ module.exports = {
       res.status(404);
       res.end('undefinded memberId');
     }
-    User.findOne({where: {memberId : memberId}})
+    Users.findOne({where: {memberId : memberId}})
     .then(data => {
       if(!data){  //회원가입이 안된 경우 자동회원가입
         //임의로 비밀번호 생성
         let password = String(Math.floor(Math.random()*1000000))
-        User.create({name, memberId, password, email})
+        Users.create({name, memberId, password, email})
         .then((data) => { 
           // console.log(data, 'data created!!!!')
           makeToken(memberId)
