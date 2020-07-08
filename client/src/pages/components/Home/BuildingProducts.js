@@ -2,8 +2,7 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import BuildingProductsItem from "./BuildingProductsItem";
-import BuildingItem from "../Buliding/buildingItem"
+import BuildingItem from "../Buliding/buildingItem";
 
 const useStyles = makeStyles({
   root: {
@@ -14,38 +13,38 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
 });
+
 const BuildingInfo = (props) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.root}>
       <table>
-        <th className="tableHeader">
+        <th className={classes.tableHeader}>
           <td>주목할 투자 상품</td>
         </th>
         <tr>
           <td>
-          <BuildingItem
-        building = {props.buildings[4]}
-        key = {props.buildings[4].casenum}
-        handleBuildingTitleClick = {props.handleBuildingTitleClick}
-      />
+            <BuildingItem
+              building={props.buildings[4]}
+              key={props.buildings[4].casenum}
+              handleBuildingTitleClick={props.handleBuildingTitleClick}
+            />
           </td>
           <td>
-            <BuildingItem 
-            building = {props.buildings[3]}
-            key = {props.buildings[3].casenum}
-            handleBuildingTitleClick = {props.handleBuildingTitleClick}
-      />
+            <BuildingItem
+              building={props.buildings[3]}
+              key={props.buildings[3].casenum}
+              handleBuildingTitleClick={props.handleBuildingTitleClick}
+            />
           </td>
           <td>
-          <BuildingItem 
-            building = {props.buildings[2]}
-            key = {props.buildings[2].casenum}
-            handleBuildingTitleClick = {props.handleBuildingTitleClick}
-      />
+            <BuildingItem
+              building={props.buildings[2]}
+              key={props.buildings[2].casenum}
+              handleBuildingTitleClick={props.handleBuildingTitleClick}
+            />
           </td>
-          
         </tr>
       </table>
     </div>
@@ -53,4 +52,3 @@ const BuildingInfo = (props) => {
 };
 
 export default BuildingInfo;
-
