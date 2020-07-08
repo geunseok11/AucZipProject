@@ -19,13 +19,13 @@ async function test(){
     console.log(d.dataValues);
     userBuilding.findAll({
         // attribute: ["roomname", "text", "id"],
-        // include: [{
-        //   model: User,
-        //   required: false,
-        //   attribute: ["name"],
+        include: [{
+          model: User,
+          required: false,
+          attribute: ["name"],
         //   where: { name: { [Op.like]: '%ooth%' } }
         //result : "name": "Toothpick",
-        // }],
+        }],
         // order: [['id', 'desc']]
       }).then((data, err) => {
         if (err) {
