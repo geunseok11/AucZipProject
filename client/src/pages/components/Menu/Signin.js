@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { withRouter } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { withRouter } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import Modal from '@material-ui/core/Modal';
+import Modal from "@material-ui/core/Modal";
 import TextField from "@material-ui/core/TextField";
-import GoogleSignin from './googleSignin.js';
-import axios from 'axios';
+import GoogleSignin from "./googleSignin.js";
+import axios from "axios";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   paper: {
-    position: 'absolute',
+    position: "absolute",
     width: 400,
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -88,59 +88,58 @@ function Signin(props) {
     setOpen(false);
   };
 
-  const handleSubmit =(props)=>{
-    const apiUrl = process.env.NODE_ENV === 'production' ? 'http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040' : 'http://localhost:3040';
-    axios
-    .post(apiUrl+'/user/signin',userInfo)
-    .then((data) => {
-      console.log(data, 'data')
+  const handleSubmit = ({ handleIsLogin }) => {
+    const apiUrl =
+      process.env.NODE_ENV === "production"
+        ? "http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040"
+        : "http://localhost:3040";
+    axios.defaults.withCredentials = true
+    axios.post(apiUrl + "/user/signin", userInfo).then((data) => {
+      console.log(data, "data");
       if (data.status === 200) {
         alert("로그인에 성공하셨습니다");
-        if(data.data.memberId === 'admin'){
-          handleClose()
-          props.history.push('/admin');
-          
-        }else{
-          handleClose()
-          props.history.push('/');
-          
+        handleIsLogin();
+        if (data.data.memberId === "admin") {
+          handleClose();
+          props.history.push("/admin");
+        } else {
+          handleClose();
+          props.history.push("/");
         }
-        
+
         // console.log(props, 'porps')
         // this.props.isLogin = true;
         // this.props.handleLogin(props.isLogin);
         // this.props.handleUserinfo(data);
-        
       } else {
         alert("로그인 실패하였습니다");
         // props.history.push('/');
       }
     });
-  
-      // e.preventDefault();
-      // fetch("http://localhost:3040/user/signin", {
-      //   method: "POST",
-      //   body: JSON.stringify(userInfo),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // }).then((data) => {
-      //   console.log(data, 'data')
-      //   if (data.status === 200) {
-      //     // alert("로그인에 성공하셨습니다");
-      //     props.history.push('/');
-      //     // console.log(props, 'porps')
-      //     // this.props.isLogin = true;
-      //     // this.props.handleLogin(props.isLogin);
-      //     // this.props.handleUserinfo(data);
-      //     handleClose()
-      //   } else {
-      //     alert("로그인 실패하였습니다");
-      //     // props.history.push('/');
-      //   }
-      // });
-    
-  }
+
+    // e.preventDefault();
+    // fetch("http://localhost:3040/user/signin", {
+    //   method: "POST",
+    //   body: JSON.stringify(userInfo),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // }).then((data) => {
+    //   console.log(data, 'data')
+    //   if (data.status === 200) {
+    //     // alert("로그인에 성공하셨습니다");
+    //     props.history.push('/');
+    //     // console.log(props, 'porps')
+    //     // this.props.isLogin = true;
+    //     // this.props.handleLogin(props.isLogin);
+    //     // this.props.handleUserinfo(data);
+    //     handleClose()
+    //   } else {
+    //     alert("로그인 실패하였습니다");
+    //     // props.history.push('/');
+    //   }
+    // });
+  };
   // const body = (
   //   // <div style={modalStyle} className={classes.paper}>
   //   //   <h2 id="simple-modal-title">Text in a modal</h2>
@@ -149,14 +148,13 @@ function Signin(props) {
   //   //   </p>
 
   //   // </div>
-    
+
   // );
 
   return (
     <div>
       {/* <div className={classes.root}></div> */}
-      <Button
-        className={classes.button} onClick={handleOpen}>
+      <Button className={classes.button} onClick={handleOpen}>
         로그인
       </Button>
       {/* <button type="button" onClick={handleOpen} className={classes.button}>
@@ -169,11 +167,19 @@ function Signin(props) {
         aria-describedby="simple-modal-description"
       >
         {/* {body} */}
-        <div>  
-        e.preventDefault();
+        <div>
+          e.preventDefault();
           {/* <div class="modal-dialog" style={{width:"400px"}} > */}
-          <div class="modal-dialog" style={{width:"500px", height:"250px", display:"flex", justifyContent:"center"}} >
-            <div class="modal-content" style={{width:"400px", }}>
+          <div
+            class="modal-dialog"
+            style={{
+              width: "500px",
+              height: "250px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <div class="modal-content" style={{ width: "400px" }}>
               <div class="modal-body">
                 <TextField
                   InputProps={{
@@ -215,7 +221,7 @@ function Signin(props) {
                 {/* <GoogleSignin /> */}
               </div>
               <div class="modal-footer">
-              <GoogleSignin handleClose={handleClose.bind(this)}/>
+                <GoogleSignin handleClose={handleClose.bind(this)} />
                 {/* <div>sign in Google</div> */}
                 <button
                   type="button"
@@ -226,14 +232,16 @@ function Signin(props) {
                   취소
                 </button>
                 {/* <button type="submit" class="btn btn-primary" type="submit"> */}
-                <button class="btn btn-primary" onClick={()=>handleSubmit(props)}>  
+                <button
+                  class="btn btn-primary"
+                  onClick={() => handleSubmit(props)}
+                >
                   로그인
                 </button>
               </div>
             </div>
           </div>
-
-      </div>
+        </div>
       </Modal>
     </div>
   );

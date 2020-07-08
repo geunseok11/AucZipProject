@@ -72,6 +72,7 @@ export default function Admin() {
   //   }
   // );
   useEffect(() => {
+    axios.defaults.withCredentials = true
     axios
       .get(apiUrl+'/admin/userList')
       .then((result) => {

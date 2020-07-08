@@ -35,7 +35,8 @@ module.exports = {
             } else {
               console.log('token', token)
               // res.status(200).cookies('token', token);
-              res.append('Set-Cookie', `token=${token};SameSite=none;`)
+              res.cookie( 'token', token);
+              // res.append('Set-Cookie', `token=${token};SameSite=none;`)
               res.json({id: data.dataValues.id, memberId: data.dataValues.memberId});
               res.end();
             }
