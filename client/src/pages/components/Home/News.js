@@ -18,10 +18,11 @@ const useStyles = makeStyles({
 const News = () => {
   const classes = useStyles();
 
-  const newsData = {};
-  fetch("http://localhost:3040/building/news")
-    .then((data) => data.text())
-    .then((text) => console.log(text));
+  const [newsData, SetNewsData] = useState(() => {
+    fetch("http://localhost:3040/building/news")
+      .then((data) => data.text())
+      .then((text) => console.log(text));
+  });
 
   return (
     <div className={classes.root}>
