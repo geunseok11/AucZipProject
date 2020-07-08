@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import BuildingList from "./components/Buliding/buildingList";
 import { fakedata } from "./components/Buliding/fakedata";
 import { Route } from "react-router-dom";
-import BuildingInfo from "./components/Buliding/buildingInfo";
+
 
 export default class Building extends Component {
   constructor(props){

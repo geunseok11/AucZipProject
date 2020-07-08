@@ -8,6 +8,12 @@ import MyPage from "./pages/MyPage";
 import Building from "./pages/Building";
 import Admin from "./pages/Admin"
 import Menu from "./pages/components/Menu/Menu";
+import B01 from "./pages/components/Buliding/B01"
+import B02 from "./pages/components/Buliding/B02"
+import B03 from "./pages/components/Buliding/B03"
+import B04 from "./pages/components/Buliding/B04"
+import B05 from "./pages/components/Buliding/B05"
+
 
 import Signup from "./pages/components/Menu/Signup";
 
@@ -64,6 +70,11 @@ export default class App extends Component {
             />
           )}
         />
+        <Route exact path="/B01" render={() => <B01 />} />
+        <Route exact path="/B02" render={() => <B02 />} />
+        <Route exact path="/B03" render={() => <B03 />} />
+        <Route exact path="/B04" render={() => <B04 />} />
+        <Route exact path="/B05" render={() => <B05 />} />
       </backGroundDiv>
     );
   }
