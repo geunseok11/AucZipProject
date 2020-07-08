@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { withMobileDialog } from "@material-ui/core";
-import GoogleSignin from './googleSignin.js';
+import GoogleSignin from "./googleSignin.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   labelFocused: {},
 }));
 
-const SignIn = (props) => {
+const SignIn = ({ handleIsLogin }) => {
   const classes = useStyles();
 
   const [userInfo, setUserInfo] = useState({
@@ -77,10 +77,10 @@ const SignIn = (props) => {
               "Content-Type": "application/json",
             },
           }).then((data) => {
-            console.log(data, 'data')
+            console.log(data, "data");
             if (data.status === 200) {
               alert("로그인에 성공하셨습니다");
-
+              handleIsLogin();
               // console.log(props, 'porps')
               // this.props.isLogin = true;
               // this.props.handleLogin(props.isLogin);
