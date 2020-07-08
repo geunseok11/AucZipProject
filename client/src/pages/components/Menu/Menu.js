@@ -42,14 +42,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Menu = () => {
+const Menu = ({ isLogin, handleIsLogin }) => {
   const classes = useStyles();
-
-  const [isLogin, setIsLogin] = useState(false);
-
-  const handleIsLogin = () => {
-    setIsLogin(!isLogin);
-  };
 
   return (
     <div className={classes.root}>
@@ -78,7 +72,7 @@ const Menu = () => {
           </Button>
           {isLogin ? (
             <Button className={classes.button} color="inherit">
-              <Link className={classes.link} to="mypage">
+              <Link className={classes.link} to="mypage" isLogin={isLogin}>
                 마이페이지
               </Link>
             </Button>
