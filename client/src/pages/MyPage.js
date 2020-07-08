@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import MyInfo from "./components/MyPage/MyInfo";
 import MyInvestInfo from "./components/MyPage/MyInvestInfo";
 
