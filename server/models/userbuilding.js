@@ -1,13 +1,12 @@
 'use strict';
-const {User} = require('./user');
-const {Building} = require('./building');
+
 
 module.exports = (sequelize, DataTypes) => {
   const userBuilding = sequelize.define('userBuilding', {
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: User,
+        model: 'Users',
         key: "id"
     },
       allowNull: false
@@ -15,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     buildingId: {
       type: DataTypes.INTEGER,
       references: {
-          model: Building,
+          model: 'Buildings',
           key: "id"
       },
       allowNull: false
@@ -27,10 +26,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   userBuilding.associate = function(models) {
     // associations can be defined here
-    // userBuilding.belongsTo(models.Users, { foreignKey: 'userId' 
-    //   , onDelete: "cascade"})
-    // userBuilding.belongsTo(models.Building, { foreignKey: 'BuildingId' 
-    //   , onDelete: "cascade"})
+    userBuilding.belongsTo(models.Users, { foreignKey: 'userId' 
+      , onDelete: "cascade"})
+    userBuilding.belongsTo(models.Buildings, { foreignKey: 'BuildingId' 
+      , onDelete: "cascade"})
   };
   return userBuilding;
 };

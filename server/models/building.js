@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Building = sequelize.define('Building', {
+  const Buildings = sequelize.define('Buildings', {
     b_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -20,9 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     b_invest_start_date: DataTypes.DATE,
     b_invest_end_date:DataTypes.DATE,
   }, {});
-  Building.associate = function(models) {
+  Buildings.associate = function(models) {
     // associations can be defined here
-    // Building.hasMany(models.userBuilding, { foreignKey: 'BuildingId' })
+    Buildings.hasMany(models.userBuilding, { foreignKey: 'BuildingId' })
     };
-  return Building;
+  return Buildings;
 };

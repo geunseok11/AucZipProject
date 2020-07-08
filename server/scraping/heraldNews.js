@@ -1,9 +1,12 @@
 // crontab -e
-// whicnnode=$(which node)
+
+// whichnode=$(which node)
 // croncmd="$whichnode heraldNews.js"
 // crontab "10 2 * * * $croncmd  // every 2.10am
 
 // SET @@global.sql_mode= 'NO_ENGINE_SUBSTITUTION';
+
+//  npx sequelize-cli db:migrate
 
 const { News } = require('../models');
 
