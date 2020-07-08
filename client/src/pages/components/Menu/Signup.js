@@ -70,6 +70,8 @@ const Signup = (props) => {
 
   const handleIsAllow = () => {
     setIsAllow(!isAllow);
+    if (isAllow) {
+    }
   };
 
   const handleClick = (Transition) => () => {
@@ -293,7 +295,10 @@ const Signup = (props) => {
                       </td>
                     </tr>
                     <tr>
-                      <Checkbox handleIsAllow={handleIsAllow}></Checkbox>
+                      <Checkbox
+                        checked={isAllow}
+                        onChange={handleIsAllow}
+                      ></Checkbox>
                       <td>동의</td>
                     </tr>
                   </table>
@@ -307,11 +312,13 @@ const Signup = (props) => {
                   >
                     취소
                   </button>
+
                   <button
                     type="submit"
                     class="btn btn-primary"
                     type="submit"
                     onClick={handleClick(TransitionUp)}
+                    disabled={isAllow ? "" : "disabled"}
                   >
                     회원 가입
                   </button>
