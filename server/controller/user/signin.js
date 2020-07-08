@@ -1,4 +1,4 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 require('dotenv').config()
 // const crypto=require('crypto');
@@ -7,8 +7,8 @@ module.exports = {
   post: (req, res) => {
     let memberId=req.body.memberId
     let password=req.body.password
-    // console.log(req.body, 'body')
-    User.findOne({where: {memberId : memberId}})
+    console.log(req.body, 'body')
+    Users.findOne({where: {memberId : memberId}})
     .then(data => {
       // console.log(data);
       if(!data){  //회원가입이 안된 경우
