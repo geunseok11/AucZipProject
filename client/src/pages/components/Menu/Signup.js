@@ -93,7 +93,7 @@ const Signup = (props) => {
 
         <form
           onSubmit={(e) => {
-            console.log(userInfo, 'userInfo');
+            console.log(userInfo, "userInfo");
             e.preventDefault();
             // fetch("http://54.180.105.165:3040/user/signup", {
             fetch("http://localhost:3040/user/signup", {
@@ -102,15 +102,16 @@ const Signup = (props) => {
               headers: {
                 "Content-Type": "application/json",
               },
-            }).then((data) => {
-              if (data.status === 200) {
-                alert("가입되었습니다");
-                //props.history.push("/");
-              } else {
-                alert("입력정보가 옳바르지 않습니다");
-              }
             })
-            .catch(e => console.log(e, 'err'))
+              .then((data) => {
+                if (data.status === 200) {
+                  alert("가입되었습니다");
+                  //props.history.push("/");
+                } else {
+                  alert("입력정보가 옳바르지 않습니다");
+                }
+              })
+              .catch((e) => console.log(e, "err"));
           }}
         >
           <div

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 import NewsItem from "./NewsItem";
+import newsFakeData from "./newsFakeData";
 
 const useStyles = makeStyles({
   root: {
@@ -25,16 +26,44 @@ const News = () => {
         </th>
         <tr>
           <td>
-            <NewsItem />
+            <NewsItem
+              id="0"
+              title={newsFakeData[0].title}
+              day={newsFakeData[0].day}
+              descriptionUrl={newsFakeData[0].descriptionUrl}
+              imageUrl={newsFakeData[0].imageUrl}
+              text={newsFakeData[0].text}
+            />
           </td>
           <td>
-            <NewsItem />
+            <NewsItem
+              id="0"
+              title={newsFakeData[0].title}
+              day={newsFakeData[0].day}
+              descriptionUrl={newsFakeData[0].descriptionUrl}
+              imageUrl={newsFakeData[0].imageUrl}
+              text={newsFakeData[0].text}
+            />
           </td>
           <td>
-            <NewsItem />
+            <NewsItem
+              id="0"
+              title={newsFakeData[0].title}
+              day={newsFakeData[0].day}
+              descriptionUrl={newsFakeData[0].descriptionUrl}
+              imageUrl={newsFakeData[0].imageUrl}
+              text={newsFakeData[0].text}
+            />
           </td>
           <td>
-            <NewsItem />
+            <NewsItem
+              id="0"
+              title={newsFakeData[0].title}
+              day={newsFakeData[0].day}
+              descriptionUrl={newsFakeData[0].descriptionUrl}
+              imageUrl={newsFakeData[0].imageUrl}
+              text={newsFakeData[0].text}
+            />
           </td>
         </tr>
       </table>
