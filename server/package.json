@@ -38,6 +38,7 @@
     "express-session": "^1.17.1",
     "fs": "0.0.1-security",
     "helmet": "^3.23.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.1.0",
     "nightmare": "^3.0.2",
