@@ -86,7 +86,11 @@ const Menu = () => {
             <Signup handleIsLogin={handleIsLogin} />
           )}
           {isLogin ? (
-            <Button className={classes.button} color="inherit">
+            <Button
+              className={classes.button}
+              color="inherit"
+              onClick={handleIsLogin}
+            >
               로그아웃
             </Button>
           ) : (
