@@ -96,12 +96,21 @@ function Signin(props) {
       console.log(data, 'data')
       if (data.status === 200) {
         alert("로그인에 성공하셨습니다");
-        props.history.push('/');
+        if(data.data.memberId === 'admin'){
+          handleClose()
+          props.history.push('/admin');
+          
+        }else{
+          handleClose()
+          props.history.push('/');
+          
+        }
+        
         // console.log(props, 'porps')
         // this.props.isLogin = true;
         // this.props.handleLogin(props.isLogin);
         // this.props.handleUserinfo(data);
-        handleClose()
+        
       } else {
         alert("로그인 실패하였습니다");
         // props.history.push('/');

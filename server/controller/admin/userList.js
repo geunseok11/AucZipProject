@@ -2,7 +2,7 @@ const { User } = require('../../models');
 require('dotenv').config()
 module.exports = {
     get: (req, res) => {
-      console.log('??')
+      console.log(req.cookies, '??')
       let token = req.cookies.token; 
       if(token){
         //권한이 있는 경우
