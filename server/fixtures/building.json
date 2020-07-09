@@ -1,0 +1,13 @@
+[
+  {
+    "b_name": "APT",
+    "image": "image",
+    "b_address": "서울",
+    "b_invest": 1,
+    "b_invest_goal": 12,
+    "b_people": "ddd",
+    "b_info": "구미시",
+    "b_location" : "hi"
+  }
+]
+
