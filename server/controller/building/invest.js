@@ -52,7 +52,7 @@ module.exports = {
               }else{
                 console.log('no building...')
                 res.status(401);
-                res.end('no user data');
+                res.end('no building data');
               }
             })
           }else{
