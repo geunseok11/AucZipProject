@@ -45,6 +45,13 @@ const BuildingInfo = (props) => {
               handleBuildingTitleClick={props.handleBuildingTitleClick}
             />
           </td>
+          <td>
+            <BuildingItem
+              building={props.buildings[1]}
+              key={props.buildings[1].casenum}
+              handleBuildingTitleClick={props.handleBuildingTitleClick}
+            />
+          </td>
         </tr>
       </table>
     </div>
