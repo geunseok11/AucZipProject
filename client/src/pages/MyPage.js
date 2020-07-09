@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import MyInfo from "./components/MyPage/MyInfo";
 import MyInvestInfo from "./components/MyPage/MyInvestInfo";
 
-const MyPage = ({ isLogin }) => {
-  if (isLogin) {
+const MyPage = (props) => {
+  console.log(props)
+  if (props.isLogin) {
     return (
       <div>
         <h1>Mypage</h1>
