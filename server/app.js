@@ -8,12 +8,12 @@ var userRouter = require("./routes/user");
 var buildingRouter = require("./routes/building");
 var boardRouter = require("./routes/board");
 var admindRouter = require("./routes/admin");
-// models.sequelize.sync().then( () => {
-//   console.log(" DB 연결 성공");
-// }).catch(err => {
-//   console.log("연결 실패");
-//   console.log(err);
-// })
+models.sequelize.sync().then( () => {
+  console.log(" DB 연결 성공");
+}).catch(err => {
+  console.log("연결 실패");
+  console.log(err);
+})
 const app = express();
 
 const port = 3040;
@@ -29,7 +29,7 @@ app.use(
 );
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); 
 
 app.use('/user', userRouter);
 app.use('/building', buildingRouter);
