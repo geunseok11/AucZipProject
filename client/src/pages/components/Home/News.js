@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 const News = () => {
   const classes = useStyles();
 
-  const [newsData, SetNewsData] = useState(() => {
+  const [newsData, setNewsData] = useState(() => {
     fetch("http://localhost:3040/building/news")
       .then((data) => data.text())
       .then((text) => console.log(text));
