@@ -19,7 +19,7 @@ module.exports = {
       Users.findOne({where: {memberId: memberId}})
       .then(data => {
         res.status(200)
-        res.json({name:data.dataValues.name, email:data.dataValues.email, 
+        res.json({id:data.dataValues.memberId, name:data.dataValues.name, email:data.dataValues.email, 
           phone:data.dataValues.phone, address:data.dataValues.address,
           money:data.dataValues.money,bankName:data.dataValues.bankName,bankNum:data.dataValues.bankNum});
         res.end();
