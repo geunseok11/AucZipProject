@@ -89,12 +89,13 @@ function Signin(props) {
   };
 
   const handleSubmit = ({ handleIsLogin }) => {
-    const apiUrl =
-      process.env.NODE_ENV === "production"
-        ? "http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040"
-        : "http://localhost:3040";
-    axios.defaults.withCredentials = true
+    const apiUrl ="http://localhost:3040";
+    // const aa ="http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040/user/signin";
+    // axios.defaults.withCredentials = true
     axios.post(apiUrl + "/user/signin", userInfo).then((data) => {
+      // console.log(aa, 'url')
+      // axios.post(aa, userInfo).then((data) => {  
+        
       console.log(data, "data");
       if (data.status === 200) {
         alert("로그인에 성공하셨습니다");

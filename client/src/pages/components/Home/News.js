@@ -19,7 +19,7 @@ const News = () => {
   const classes = useStyles();
 
   const [newsData, setNewsData] = useState(() => {
-    fetch("http://localhost:3040/building/news")
+    fetch("http://54.180.105.165:3040/building/news")
       .then((data) => data.text())
       .then((text) => console.log(text));
   });

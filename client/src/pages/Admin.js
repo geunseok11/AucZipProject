@@ -62,7 +62,7 @@ export default function Admin() {
     console.log(Items, 'items is')
 }
   const classes = useStyles();
-  const apiUrl = process.env.NODE_ENV === 'production' ? 'http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040' : 'http://localhost:3040';
+  const apiUrl = 'http://localhost:3040' ;
   // axios.get(apiUrl) 
   // .then(
   //   (result) => {
@@ -75,6 +75,7 @@ export default function Admin() {
     axios.defaults.withCredentials = true
     axios
       .get(apiUrl+'/admin/userList')
+      // .get("http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040/admin/userList")
       .then((result) => {
         console.log(result.data, 'get data')
         setItems(result.data)
