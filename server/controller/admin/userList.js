@@ -1,11 +1,12 @@
-const { Users } = require('../../models');
+const { User } = require('../../models');
+const jwt = require('jsonwebtoken');
+const cookie=require('cookie')
 require('dotenv').config()
 const jwt = require('jsonwebtoken');
 module.exports = {
     get: (req, res) => {
-      console.log(req.headers.cookie, '??')
-      console.log(req.headers.cookie.slice(22), '1111??')
-      let token = req.headers.cookie.slice(22); 
+      console.log(req.cookies, '??')
+      let token = cookie.parse(req.headers.cookie).token
       if(token){
         //권한이 있는 경우
         let decoded = jwt.verify(token, process.env.SECRET_KEY); 
