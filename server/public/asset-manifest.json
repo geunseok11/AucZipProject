@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.efbc4e8e.chunk.css",
+    "main.js": "/static/js/main.fe73a6f4.chunk.js",
+    "main.js.map": "/static/js/main.fe73a6f4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/js/2.f3949226.chunk.js": "/static/js/2.f3949226.chunk.js",
+    "static/js/2.f3949226.chunk.js.map": "/static/js/2.f3949226.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.eeffb4e18ed578e1c204fc622c32894c.js": "/precache-manifest.eeffb4e18ed578e1c204fc622c32894c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.efbc4e8e.chunk.css.map": "/static/css/main.efbc4e8e.chunk.css.map",
+    "static/js/2.f3949226.chunk.js.LICENSE.txt": "/static/js/2.f3949226.chunk.js.LICENSE.txt",
+    "static/media/AucZip_title_fullsize.png": "/static/media/AucZip_title_fullsize.b22d95de.png",
+    "static/media/index.css": "/static/media/DoHyeon-Regular.39c6088e.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09b85ec0.js",
+    "static/js/2.f3949226.chunk.js",
+    "static/css/main.efbc4e8e.chunk.css",
+    "static/js/main.fe73a6f4.chunk.js"
+  ]
+}
