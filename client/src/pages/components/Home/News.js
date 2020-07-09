@@ -34,41 +34,41 @@ const News = () => {
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsData[0].title}
+              day={newsData[0].day}
+              descriptionUrl={newsData[0].descriptionUrl}
+              imageUrl={newsData[0].imageUrl}
+              text={newsData[0].text}
             />
           </td>
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsData[1].title}
+              day={newsData[1].day}
+              descriptionUrl={newsData[1].descriptionUrl}
+              imageUrl={newsData[1].imageUrl}
+              text={newsData[1].text}
             />
           </td>
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsData[2].title}
+              day={newsData[2].day}
+              descriptionUrl={newsData[2].descriptionUrl}
+              imageUrl={newsData[2].imageUrl}
+              text={newsData[2].text}
             />
           </td>
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsData[3].title}
+              day={newsData[3].day}
+              descriptionUrl={newsData[3].descriptionUrl}
+              imageUrl={newsData[3].imageUrl}
+              text={newsData[3].text}
             />
           </td>
         </tr>
