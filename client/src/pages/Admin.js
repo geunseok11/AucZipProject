@@ -62,7 +62,7 @@ export default function Admin() {
     console.log(Items, 'items is')
 }
   const classes = useStyles();
-  const apiUrl = 'http://localhost:3040' ;
+  const apiUrl = 'http://54.180.105.165:3040' ;
   // axios.get(apiUrl) 
   // .then(
   //   (result) => {

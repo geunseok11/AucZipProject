@@ -8,7 +8,7 @@ const BuildingList = (props) => (
       return (
         <BuildingItem
           building={data}
-          key={data.casenum}
+          key={data.id}
           handleBuildingTitleClick={props.handleBuildingTitleClick}
         />
       );
