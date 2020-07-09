@@ -53,6 +53,7 @@ const App = () => {
         render={() => (
           <Signup
             isLogin={isLogin}
+            // url="http://54.180.105.165:3040/user/signup"
             url="http://54.180.105.165:3040/user/signup"
           />
         )}

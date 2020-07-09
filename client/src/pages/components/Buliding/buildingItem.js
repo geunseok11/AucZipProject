@@ -27,24 +27,24 @@ const BuildingItem = (props) => {
         <CardActionArea>
           <CardMedia
             component="img"
-            alt={props.building.location}
+            alt={props.building.b_location}
             height="140"
-            image={`${props.building.imageUrl}`}
-            title={props.building.location}
+            image={`${props.building.image}`}
+            title={props.building.b_location}
           />
           <CardContent>
             <Typography gutterBottom variant="h4" component="h2">
-              {props.building.location}
+              {props.building.b_location}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              <div>{props.building.casenum}</div>
-              <div>{props.building.use}</div>
+              <div>{props.building.id}</div>
+              <div>{props.building.b_use}</div>
               <div
                 onClick={() => props.handleBuildingTitleClick(props.building)}
               >
-                {props.building.evaluation}
+                {props.building.b_evaluation}
               </div>
-              <div>{props.building.location}</div>
+              <div>{props.building.b_location}</div>
             </Typography>
           </CardContent>
         </CardActionArea>

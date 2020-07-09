@@ -22,14 +22,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    // origin: ['http://localhost:3000', 'http://localhost:3040', 'http://cho-first.s3-website.ap-northeast-2.amazonaws.com/'],
+    origin: '*',
     methods: ['GET', 'POST'],
     credentials: true
   })
 );
 
 app.use(morgan('dev'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); 
 
 app.use('/user', userRouter);
 app.use('/building', buildingRouter);
