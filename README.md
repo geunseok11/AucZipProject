@@ -1,32 +1,50 @@
-## 프로젝트 README.md는 여러분이 작업한 프로젝트 레포의 얼굴입니다.
+## 개요
+- 팀명 : **우아한아재들(Elegance AZ)**
+- 팀원 : **조규창(팀장), 이하준, 정근석, 김민재**
+- 프로젝트 명 : **옥집(AucZip / Auction Zip)**
+- 프로젝트 기간 : **20.06.29 ~ 20.07.08**
 
-### Readme에 들어가야 할 것들  
+## 서비스 설명 
+커피 한 잔으로 건물주되자!
+AucZip은 소액으로도 건물 투자를 할 수 있도록 한다.<br/>
+경매에 올라온 매물을 매입하여 시중 책정된 가격보다 저렴한 금액으로 부담없이 투자할 수 있게 돕는다.
 
-- 서비스 설명
-- 스크린샷 or 데모 : 여러분이 작성한 프로젝트의 시연 스크린샷 혹은 gif 파일을 첨부해서 어떤 결과물을 구현했는지 한 눈에 볼 수 있도록 해 주세요. 
-- 주요 기능에 대한 안내 
-- 설치 & 사용 방법
+## 스크릿샷
+
+## 주요 기능 안내
+https://www.notion.so/creampuff/4652d195e30e4afca28a26dee2270f66?v=378aad52a93849f78f725b4d0d4572c3
+
+## 설치 & 사용 방법
+### /
+1. npm install
+### /server/scraping
+1. node heraldNews.js
+2. node daumAuction.js
+### /server
+1. export DATABASE_PASSWORD='(mysql 루트 비밀번호)'
+2. export SECRET_KEY='(임의의 숫자)'
+3. npx sequelize-cli db:migrate
+4. node app.js
+### /client
+1. npm start
+
+## 기술 스택
+### Front-end
+- React
+- Redux
+- Material-UI
+### Back-end
+- Node.js
+- Express.js
+- JWT
+- MySQL
+- Sequelize
+- Nightmare
+
+### Etc.
+- AWS => EC2 / RDS / S3
+- Google Login API
+
 - 기술 스택 : 다음 [레퍼런스](https://velog.io/@loakick/Shield-IO-%EC%82%AC%EC%9A%A9%EB%B2%95-iojyndy4pi)를 참고하여 뱃지로 표현할 수도 있어요.
 
-> 이 외에도 팀원 소개, 아키텍쳐, 스키마 등 여러분의 프로젝트를 더 잘 어필할 수 있는 내용들을 추가해 주세요. 
-> 예시가 될 수 있는 레파지토리들을 검색해서 참고하면 좋겠습니다. 
-
-<br/>
-<br/>
-
 **이 외에 프로젝트 과정에서의 기획과정, 회고, 진행 현황등 자세한 사항들은 Wiki에 기록하게 됩니다. [여기](https://github.com/codestates/project-test/wiki)를 눌러 이동해 주세요**
-
-
-# 프로젝트 개요 및 규칙
-
-## 📌 개요
-
-- **프로젝트 기간** : 20.06.29 ~ 20.07.08 (주말 포함 10일)
-- **총 3개의 Sprint**로 진행 (각 스프린트는 하나의 일정한 **기능 단위 완성**으로 구성되어야 함)
-    - Sprint 1 ⇒ 프로젝트 설계
-    - Sprint 2 ⇒ 프로젝트 제작
-    - Sprint 3 ⇒ advancde 제작 및 배포
-- 시스템 아키텍쳐 설계 (기능 flow, 컴포넌트 구성)
-- DB 스키마 설계
-- 팀원별 role (front-end, back-end or feature 단위)
-- UI 기획서
