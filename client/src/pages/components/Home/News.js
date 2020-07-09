@@ -44,31 +44,31 @@ const News = () => {
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsFakeData[1].title}
+              day={newsFakeData[1].day}
+              descriptionUrl={newsFakeData[1].descriptionUrl}
+              imageUrl={newsFakeData[1].imageUrl}
+              text={newsFakeData[1].text}
             />
           </td>
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsFakeData[2].title}
+              day={newsFakeData[2].day}
+              descriptionUrl={newsFakeData[2].descriptionUrl}
+              imageUrl={newsFakeData[2].imageUrl}
+              text={newsFakeData[2].text}
             />
           </td>
           <td>
             <NewsItem
               id="0"
-              title={newsFakeData[0].title}
-              day={newsFakeData[0].day}
-              descriptionUrl={newsFakeData[0].descriptionUrl}
-              imageUrl={newsFakeData[0].imageUrl}
-              text={newsFakeData[0].text}
+              title={newsFakeData[3].title}
+              day={newsFakeData[3].day}
+              descriptionUrl={newsFakeData[3].descriptionUrl}
+              imageUrl={newsFakeData[3].imageUrl}
+              text={newsFakeData[3].text}
             />
           </td>
         </tr>
