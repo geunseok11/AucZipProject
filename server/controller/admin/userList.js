@@ -1,8 +1,8 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 const cookie=require('cookie')
 require('dotenv').config()
-const jwt = require('jsonwebtoken');
+
 module.exports = {
     get: (req, res) => {
       console.log(req.cookies, '??')

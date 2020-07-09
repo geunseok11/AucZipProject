@@ -22,7 +22,7 @@ const responseGoogle = (googleUser, props) => {
     // console.log(result.data, 'get data')
     console.log(result, 'result')
     props.handleClose();
-    props.history.push('/admin');
+    props.history.push('/');
   });
 }
  
