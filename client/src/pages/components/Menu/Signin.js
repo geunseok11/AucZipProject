@@ -100,6 +100,7 @@ function Signin(props) {
       if (data.status === 200) {
         alert("로그인에 성공하셨습니다");
         handleIsLogin();
+
         if (data.data.memberId === "admin") {
           handleClose();
           props.history.push("/admin");
@@ -114,6 +115,7 @@ function Signin(props) {
         // this.props.handleUserinfo(data);
       } else {
         alert("로그인 실패하였습니다");
+
         // props.history.push('/');
       }
     });
