@@ -93,12 +93,13 @@ function Signin(props) {
       process.env.NODE_ENV === "production"
         ? "http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040"
         : "http://localhost:3040";
-    axios.defaults.withCredentials = true
+    axios.defaults.withCredentials = true;
     axios.post(apiUrl + "/user/signin", userInfo).then((data) => {
       console.log(data, "data");
       if (data.status === 200) {
         alert("로그인에 성공하셨습니다");
         handleIsLogin();
+
         if (data.data.memberId === "admin") {
           handleClose();
           props.history.push("/admin");
@@ -113,6 +114,7 @@ function Signin(props) {
         // this.props.handleUserinfo(data);
       } else {
         alert("로그인 실패하였습니다");
+
         // props.history.push('/');
       }
     });
