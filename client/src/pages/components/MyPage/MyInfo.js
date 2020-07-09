@@ -28,12 +28,6 @@ useEffect(() => {
 <TextField label="ID"
                   type="text"
                   name="memberId" defaultValue={userInfo.memberId}/><br/>
-
-const MyInfo = (props) => {
-  const userInfo = props;
-
-  return (
-    <div>
       <TextField
         label="Name"
         type="text"
