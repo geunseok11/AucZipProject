@@ -21,7 +21,7 @@ module.exports = {
           makeToken(memberId)
           .then(token =>{
             res.status(200).cookie('token', token);
-            res.json({id: data.dataValues.id});
+            res.json({id: data.dataValues.id, memberId: data.dataValues.memberId});
             res.end();
           })
           .catch(e => {
@@ -41,7 +41,7 @@ module.exports = {
           makeToken(memberId)
           .then(token =>{
             res.status(200).cookie('token', token);
-            res.json({id: data.dataValues.id});
+            res.json({id: data.dataValues.id, memberId: data.dataValues.memberId});
             res.end();
           })
           .catch(e => {

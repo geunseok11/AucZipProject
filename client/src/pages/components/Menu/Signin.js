@@ -93,6 +93,7 @@ function Signin(props) {
       process.env.NODE_ENV === "production"
         ? "http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040"
         : "http://localhost:3040";
+    axios.defaults.withCredentials = true
     axios.post(apiUrl + "/user/signin", userInfo).then((data) => {
       console.log(data, "data");
       if (data.status === 200) {

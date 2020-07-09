@@ -1,7 +1,8 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 const cookie=require('cookie')
 require('dotenv').config()
+
 module.exports = {
     get: (req, res) => {
       console.log(req.cookies, '??')
@@ -13,7 +14,7 @@ module.exports = {
         Users.findOne({where: {memberId: memberId}})
         .then(data => {
           if(memberId==='admin'){
-            User.findAll() //{raw: true	}
+            Users.findAll() //{raw: true	}
             .then(data => {
               if(!data){  
                 res.status(404);
@@ -27,6 +28,7 @@ module.exports = {
               }
             })
           }else{
+            console.log('not admin')
             res.status(401).send('not admin');
             res.end();
           }
@@ -35,6 +37,7 @@ module.exports = {
         })
       } else {
         //권한 없는 경우
+        console.log('need user session')
         res.status(401).send('need user session');
         res.end();
       }
