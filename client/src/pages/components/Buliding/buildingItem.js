@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { fakedata } from "./fakedata";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -20,9 +20,9 @@ const useStyles = makeStyles({
 
 const BuildingItem = (props) => {
   const classes = useStyles();
-
   return (
-    <Link to={"/" + props.building.URL}>
+    <Link to={"/Bdetail/"+props.building.id}>
+    {/* // {"/" + props.building.URL}> */}
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
@@ -40,7 +40,11 @@ const BuildingItem = (props) => {
               <div>{props.building.id}</div>
               <div>{props.building.b_use}</div>
               <div
-                onClick={() => props.handleBuildingTitleClick(props.building)}
+                // onClick={() => { 
+                //   props.handleBuildingTitleClick(props.building)
+                //   console.log(props, 'porps is')
+                //   props.history.push("/Bdetail");
+                // }}
               >
                 {props.building.b_evaluation}
               </div>
@@ -54,4 +58,4 @@ const BuildingItem = (props) => {
   );
 };
 
-export default BuildingItem;
+export default withRouter(BuildingItem);
