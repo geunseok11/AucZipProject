@@ -43,7 +43,7 @@ import axios from "axios";
 
 const graph = {
   position: 'relative',
-        width: '400px',
+        width: '500px',
         border: '1px solid rgb(23, 54, 131)',
         padding: '2px',
 		fontSize:'11px',
@@ -83,13 +83,14 @@ const Bdetil  = ({match}) => {
         if(curr){
           setCurrentBuilding(curr)
           if(!curr.b_invest)curr.b_invest=0;
-          setWidth((curr.b_invest*100/curr.b_invest_goal).toFixed (2))
+          setWidth( String((curr.b_invest*100/curr.b_invest_goal).toFixed (2))+'%' )
         }
         console.log(curr.b_invest, curr.b_invest_goal, 'curr data')
       });
   }, []);
   //currentBuilding.imageUrl
   return(
+    <div style={{display:"flex", justifyContent:"center"}}>
     <div>
      <img 
     src={ currentBuilding.image } width="400px"></img>
@@ -99,7 +100,7 @@ const Bdetil  = ({match}) => {
 
     </iframe> */}
     <div class="graph">
-  <strong class="bar" style={graph, bar, span, {width: `${width}`}} >{width}%</strong>
+  <strong class="bar" style={graph, bar, span, {width: `${width}`}} >{width}</strong>
     </div>
     <Invest />
         <div>사용용도 {currentBuilding.b_use}</div>
@@ -109,7 +110,7 @@ const Bdetil  = ({match}) => {
         <div>기간 {currentBuilding.b_due}</div>
         <div>{currentBuilding.b_views} views</div>
 
-
+        </div>
      </div>
   )
 
