@@ -48,7 +48,7 @@ const BuildingInfo = (props) => {
           <td>
             <BuildingItem
               building={props.buildings[1]}
-              key={props.buildings[1].casenum}
+              key={props.buildings[1].id}
               handleBuildingTitleClick={props.handleBuildingTitleClick}
             />
           </td>
