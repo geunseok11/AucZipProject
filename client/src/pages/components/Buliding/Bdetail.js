@@ -3,6 +3,7 @@ import { fakedata } from "./fakedata";
 import TextField from "@material-ui/core/TextField";
 import "./B01.css"
 import { makeStyles } from "@material-ui/core/styles";
+import Invest from './invest'
 import axios from "axios";
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -42,7 +43,7 @@ import axios from "axios";
 
 const graph = {
   position: 'relative',
-        width: '500px',
+        width: '400px',
         border: '1px solid rgb(23, 54, 131)',
         padding: '2px',
 		fontSize:'11px',
@@ -100,6 +101,7 @@ const Bdetil  = ({match}) => {
     <div class="graph">
   <strong class="bar" style={graph, bar, span, {width: `${width}`}} >{width}%</strong>
     </div>
+    <Invest />
         <div>사용용도 {currentBuilding.b_use}</div>
         <div>주소 {currentBuilding.b_location}</div>
         <div>{currentBuilding.b_size}</div>
