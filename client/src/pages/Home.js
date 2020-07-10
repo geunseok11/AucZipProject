@@ -37,6 +37,7 @@ export default class Home extends Component {
     return (
       <div>
         <BuildingProducts buildings={this.state.buildings} 
+          currentBuilding={this.state.currentBuilding}
         handleBuildingTitleClick={this.handleBuildingTitleClick}
         />
         <hr />
