@@ -8,7 +8,7 @@ import MyPage from "./pages/MyPage";
 import Building from "./pages/Building";
 import Admin from "./pages/Admin";
 import Menu from "./pages/components/Menu/Menu";
-import B01 from "./pages/components/Buliding/B01";
+import Bdetail from "./pages/components/Buliding/Bdetail";
 import B02 from "./pages/components/Buliding/B02";
 import B03 from "./pages/components/Buliding/B03";
 import B04 from "./pages/components/Buliding/B04";
@@ -54,11 +54,11 @@ const App = () => {
           <Signup
             isLogin={isLogin}
             // url="http://54.180.105.165:3040/user/signup"
-            url="localhost/user/signup"
+            url="http://54.180.105.165:3040/user/signup"
           />
         )}
       />
-      <Route exact path="/B01" render={() => <B01 />} />
+      <Route exact path="/Bdetail/:id" render={(props) => <Bdetail {...props}/>} />
       <Route exact path="/B02" render={() => <B02 />} />
       <Route exact path="/B03" render={() => <B03 />} />
       <Route exact path="/B04" render={() => <B04 />} />

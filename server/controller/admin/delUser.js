@@ -1,4 +1,4 @@
-const { User } = require('../../models');
+const { Users } = require('../../models');
 const jwt = require('jsonwebtoken');
 // const crypto=require('crypto');
 
@@ -7,20 +7,20 @@ module.exports = {
     console.log(req.body, 'body')
     let memberId=req.body.memberId
 console.log('del in')
-    User.findOne({where: {memberId : memberId}})
+    Users.findOne({where: {memberId : memberId}})
     .then((data) => {
       //console.log(data);
       if(!data){  //회원가입이 안된 경우
         res.status(404);
-        res.end('unvalid user');
+        res.end('unvalid users');
       } else {  //회원가입이 된 경우
-        User.destroy({
+        Users.destroy({
           where: {
             memberId: memberId
           }
         })
         .then(result => { //삭제 후 유저 찾아서 보내주기
-          User.findAll({})
+          Users.findAll({})
           .then(data =>{
             data = data.map(el => el.get({ plain: true }));
             res.status(200).send(data);

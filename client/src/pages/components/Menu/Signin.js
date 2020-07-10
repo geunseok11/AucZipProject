@@ -89,7 +89,7 @@ function Signin(props) {
   };
 
   const handleSubmit = ({ handleIsLogin }) => {
-    const apiUrl ="http://localhost:3040";
+    const apiUrl = "http://54.180.105.165:3040";
     // const aa ="http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040/user/signin";
     // axios.defaults.withCredentials = true
     axios.post(apiUrl + "/user/signin", userInfo).then((data) => {
@@ -100,6 +100,7 @@ function Signin(props) {
       if (data.status === 200) {
         alert("로그인에 성공하셨습니다");
         handleIsLogin();
+
         if (data.data.memberId === "admin") {
           handleClose();
           props.history.push("/admin");
@@ -114,6 +115,7 @@ function Signin(props) {
         // this.props.handleUserinfo(data);
       } else {
         alert("로그인 실패하였습니다");
+
         // props.history.push('/');
       }
     });
