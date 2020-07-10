@@ -90,7 +90,7 @@ const ChangePW = (props) => {
           onSubmit={(e) => {
             console.log(userInfo, "userInfo");
             e.preventDefault();
-            fetch("http://localhost:3040/user/info", {
+            fetch("http://54.180.105.165:3040/user/info", {
               method: "POST",
               body: JSON.stringify(userInfo),
               headers: {
