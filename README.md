@@ -30,7 +30,7 @@ https://www.notion.so/creampuff/4652d195e30e4afca28a26dee2270f66?v=378aad52a9384
 2. node daumAuction.js
 ### /server
 1. export DATABASE_PASSWORD='(mysql 루트 비밀번호)'
-2. export SECRET_KEY='(임의의 숫자)'
+2. export SECRET_KEY='(임의의 숫자, 문자)'
 3. npx sequelize-cli db:migrate
 4. node app.js
 ### /client
