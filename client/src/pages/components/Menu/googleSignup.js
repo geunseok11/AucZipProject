@@ -32,7 +32,7 @@ function Admin(props) {
   return (
   <GoogleLogin
     clientId="51190329735-ciio9gh389l8k5hus2a2584qps7req7j.apps.googleusercontent.com"
-    buttonText="google Login"
+    buttonText="google SignUp"
     onSuccess={result => responseGoogle(result, props)}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}

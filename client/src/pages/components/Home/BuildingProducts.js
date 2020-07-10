@@ -27,28 +27,28 @@ const BuildingInfo = (props) => {
           <td>
             <BuildingItem
               building={props.buildings[4]}
-              key={props.buildings[4].casenum}
+              key={props.buildings[4].id}
               handleBuildingTitleClick={props.handleBuildingTitleClick}
             />
           </td>
           <td>
             <BuildingItem
               building={props.buildings[3]}
-              key={props.buildings[3].casenum}
+              key={props.buildings[3].id}
               handleBuildingTitleClick={props.handleBuildingTitleClick}
             />
           </td>
           <td>
             <BuildingItem
               building={props.buildings[2]}
-              key={props.buildings[2].casenum}
+              key={props.buildings[2].id}
               handleBuildingTitleClick={props.handleBuildingTitleClick}
             />
           </td>
           <td>
             <BuildingItem
               building={props.buildings[1]}
-              key={props.buildings[1].casenum}
+              key={props.buildings[1].id}
               handleBuildingTitleClick={props.handleBuildingTitleClick}
             />
           </td>

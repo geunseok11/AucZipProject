@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Modal from "@material-ui/core/Modal";
 import TextField from "@material-ui/core/TextField";
 import { Checkbox } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
+import GoogleSignup from "./googleSignup.js";
 import Slide from "@material-ui/core/Slide";
-
+import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -49,7 +51,7 @@ function TransitionUp(props) {
 const Signup = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
+  const [transition, setTransition] = React.useState(undefined);;
 
   const [userInfo, setUserInfo] = useState({
     memberId: "",
@@ -78,54 +80,50 @@ const Signup = (props) => {
     setTransition(() => Transition);
     setOpen(true);
   };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleSubmit = (Transition) => () =>  {
+    setTransition(() => Transition);
+    const apiUrl = "http://54.180.105.165:3040";
+    // const aa ="http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040/user/signin";
+    axios.post(apiUrl + "/user/signup", userInfo)
+    .then((data) => {
+      if (data.status === 200) {
+        alert("가입되었습니다");
+        handleClose();
+        //props.history.push("/");
+      } else {
+        alert("입력정보가 옳바르지 않습니다");
+      }
+    })
+    .catch((e) => console.log(e, "err"));
+  };
   return (
     <div>
-      <span>
-        <Button
-          className={classes.button}
-          variant="contained"
-          color="primary"
-          id="modalTest"
-          data-toggle="modal"
-          data-target="#signup"
-        >
-          회원가입
-        </Button>
-
-        <form
-          onSubmit={(e) => {
-            console.log(userInfo, "userInfo");
-            e.preventDefault();
-            // fetch("http://54.180.105.165:3040/user/signup", {
-            fetch("http://localhost:3040/user/signup", {
-              method: "POST",
-              body: JSON.stringify(userInfo),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            })
-              .then((data) => {
-                if (data.status === 200) {
-                  alert("가입되었습니다");
-                  //props.history.push("/");
-                } else {
-                  alert("입력정보가 옳바르지 않습니다");
-                }
-              })
-              .catch((e) => console.log(e, "err"));
-          }}
-        >
-          <div
-            class="modal fade"
-            id="signup"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="myModalLabel"
-          >
-            <div class="modal-dialog" role="document">
+      <Button className={classes.button} onClick={handleOpen}>
+      회원가입
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+      <div>
+            <div class="modal-dialog" 
+             style={{
+              width: "500px",
+              height: "650px",
+              display: "flex",
+              justifyContent: "center",
+            }}>
               <div class="modal-content">
-                <div class="modal-header">
+                {/* <div class="modal-header">
                   <button
                     type="button"
                     class="close"
@@ -137,7 +135,7 @@ const Signup = (props) => {
                   <h4 class="modal-title" id="myModalLabel">
                     회원가입
                   </h4>
-                </div>
+                </div> */}
                 <div class="modal-body">
                   {/* ID */}
                   <TextField
@@ -302,22 +300,23 @@ const Signup = (props) => {
                       <td>동의</td>
                     </tr>
                   </table>
-                  <div>Sign in with Google</div>
+                  {/* <div>Sign in with Google</div> */}
+                  <GoogleSignup handleClose={handleClose.bind(this)} />
                 </div>
                 <div class="modal-footer">
                   <button
-                    type="button"
-                    class="btn btn-default"
-                    data-dismiss="modal"
+                  type="button"
+                  class="btn btn-default"
+                  data-dismiss="modal"
+                  onClick={handleClose}
                   >
                     취소
                   </button>
 
                   <button
-                    type="submit"
                     class="btn btn-primary"
-                    type="submit"
-                    onClick={handleClick(TransitionUp)}
+                    onClick={handleSubmit(TransitionUp)}
+                    // onClick={handleClick(TransitionUp)}
                     disabled={isAllow ? "" : "disabled"}
                   >
                     회원 가입
@@ -325,9 +324,9 @@ const Signup = (props) => {
                 </div>
               </div>
             </div>
-          </div>
-        </form>
-      </span>
+   
+        </div>
+        </Modal>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { fakedata } from "./components/Buliding/fakedata";
 import BuildingProducts from "./components/Home/BuildingProducts";
 import News from "./components/Home/News";
 import Contact from "./components/Home/Contact";
-
+import axios from 'axios';
 const useStyles = makeStyles({});
 
 export default class Home extends Component {
@@ -18,6 +18,15 @@ export default class Home extends Component {
     };
     this.handleBuildingTitleClick=this.handleBuildingTitleClick.bind(this)
   }
+  componentDidMount() {
+    axios.defaults.withCredentials = true
+    axios
+      .get('http://54.180.105.165:3040/building/info')
+      .then((result) => {
+        this.setState({ buildings: result.data, currentBuilding: result.data[0] }) 
+
+      });
+  }
   handleBuildingTitleClick(building) {
     this.setState({
       currentBuilding: building
@@ -28,6 +37,7 @@ export default class Home extends Component {
     return (
       <div>
         <BuildingProducts buildings={this.state.buildings} 
+          currentBuilding={this.state.currentBuilding}
         handleBuildingTitleClick={this.handleBuildingTitleClick}
         />
         <hr />
