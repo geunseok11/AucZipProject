@@ -15,7 +15,9 @@ router.post('/signup', userController.signup.post);
 // * GET /user/info
 router.get('/info', userController.info.get);
 
-router.post('/pwd', userController.pwd.post);
+router.post('/info', userController.info.post);
+
+router.get('/pwd', userController.pwd.post);
 
 router.post('/googleSignin', userController.googleSignin.post);
 
