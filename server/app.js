@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://localhost:3040', 'http://cho-first.s3-website.ap-northeast-2.amazonaws.com/'],
+    origin: ['http://localhost:3000', 'http://localhost:3040', 'http://cho-first.s3-website.ap-northeast-2.amazonaws.com', 'http://54.180.105.165:3040','http://ec2-54-180-105-165.ap-northeast-2.compute.amazonaws.com:3040'],
     methods: ['GET', 'POST'],
     credentials: true
   })
