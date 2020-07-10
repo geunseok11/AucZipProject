@@ -1,25 +1,47 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 
-export default class Deposit extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      deposit: "" 
-    };
-    this.handleInputValue = this.handleInputValue.bind(this);
-  }
-  handleInputValue = key => e => {
-    this.setState({ [key]: e.target.value });
+const Deposit = (props) => {
+  console.log(props)
+
+  const [userInfo, setUserInfo] = useState({
+    money: ""
+  });
+
+  const handleInputValue = (key) => (e) => {
+    setUserInfo({ ...userInfo, [key]: e.target.value });
+    console.log(userInfo);
   };
-  redner() {
+
     return (
       <div>
 
-        <Button variant="contained" color="primary" id="modalTest" data-toggle="modal" data-target="#signup"> 충전하기</Button>
-
-        <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <Button variant="contained" color="primary" id="modalTest" data-toggle="modal" data-target="#deposit"> 충전하기</Button>
+        <form
+          onSubmit={(e) => {
+            console.log(userInfo, "userInfo");
+            e.preventDefault();
+            fetch("http://54.180.105.165:3040/user/info", {
+            // fetch("http://54.180.105.165:3040/user/signup", {
+              method: "POST",
+              body: JSON.stringify(userInfo),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((data) => {
+                if (data.status === 200) {
+                  alert("충전되었습니다");
+                  //props.history.push("/");
+                } else {
+                  alert("입력정보가 옳바르지 않습니다");
+                }
+              })
+              .catch((e) => console.log(e, "err"));
+          }}
+        >
+        <div class="modal fade" id="deposit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -28,7 +50,7 @@ export default class Deposit extends Component {
             </div>
             <div class="modal-body"></div>
             <Button variant="contained" color="primary" id="modalTest" data-toggle="modal" data-target="#signup"> 발급</Button>
-      <TextField label="deposit" type="text" name="deposit" defaultValue="충전하기" onChange={this.handleInputValue("deposit")} />
+      <TextField label="deposit" type="text" name="deposit" defaultValue="충전하기" onChange={handleInputValue("money")} />
       <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
               <button type="submit" class="btn btn-primary" type="submit">충전하기</button>
@@ -36,9 +58,11 @@ export default class Deposit extends Component {
             </div>
          </div>
         </div>
+        </form>
       </div>
 
     ); 
    
   }
-}
+
+  export default Deposit;
