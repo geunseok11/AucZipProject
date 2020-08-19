@@ -4,9 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import ChangePW from './ChangePW';
 import Deposit from './Deposit';
 import axios from 'axios';
-import { Container } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-
 const MyInfo = (props) => {
   
   // const userInfo = props
@@ -22,15 +19,51 @@ useEffect(() => {
 
   return(
       <div>
-        <Box bgcolor="primary.dark" color="primary.contrastText"p={2} m={1} width="500px">NAME : {userInfo? userInfo.name: ''}</Box>
-        <Box bgcolor="primary.dark" color="primary.contrastText"p={2} m={1} width="500px">ID   : {userInfo? userInfo.id: ''}</Box>
-        <Box bgcolor="primary.dark" color="primary.contrastText"p={2} m={1} width="500px">PASSWORD : {userInfo? userInfo.password: ''}</Box><ChangePW /> <br />
-        <Box bgcolor="primary.dark" color="primary.contrastText"p={2} m={1} width="500px">PHONE : {userInfo? userInfo.phone: ''}</Box>
-        <Box bgcolor="primary.dark" color="primary.contrastText"p={2} m={1} width="500px">MONEY : {userInfo? userInfo.money: ''}</Box>
-        
+        <div>test: {userInfo? userInfo.name: ''}</div>
+      
+      <TextField label="Name"
+                    type="text"
+                    name="name" defaultValue={userInfo? userInfo.name: ''} /><br/>
 
-     
-      <Deposit />
+<TextField label="ID"
+                  type="text"
+                  name="memberId" defaultValue={userInfo.memberId}/><br/>
+      <TextField
+        label="Name"
+        type="text"
+        name="name"
+        defaultValue={userInfo.name}
+      />
+      <br />
+      <TextField
+        label="ID"
+        type="text"
+        name="memberId"
+        defaultValue={userInfo.memberId}
+      />
+      <br />
+      <TextField
+        label="Email"
+        type="email"
+        name="email"
+        defaultValue={userInfo.email}
+      />
+      <br />
+      <TextField
+        label="Password"
+        type="password"
+        name="password"
+        defaultValue={userInfo.password}
+      />
+      <ChangePW /> <br />
+      <TextField
+        label="Phone"
+        type="text"
+        name="phone"
+        defaultValue={userInfo.phone}
+      />
+      <br />
+      {/* <TextField label="deposit" type="text" name="deposit" defaultValue={userInfo.deposit} /><Deposit /> */}
       <br />
     </div>
   );
